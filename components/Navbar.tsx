@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useState } from 'react'
 import {CgMenuRight} from "react-icons/cg"
 
@@ -23,40 +24,44 @@ const Navbar = () => {
     ]
   return (
 
-   <React.Fragment>
-      <div className='hidden lg:grid grid-cols-2 bg-white  min-w-full py-8 px-5'>
+
+<div className='relative'>
+   <div className=' hidden md:block fixed  bg-white min-w-full py-5 px-5 z-10'>
+   <div className='grid grid-cols-2 '>
          <p className='tracking-widest'>THERAPEUTIC TOUCHPOINT</p>
          <div className='flex justify-around'>
            {menuItems.map(menuItem=>{
             return (
                 <div key={menuItem.content} className=''>
-                    <p className='text-sm tracking-widest'>{menuItem.content}</p>
+                    <Link href={`${menuItem.path}`} className='text-xs hover:text-black hover:transition-all ease-in duration-100 tracking-widest cursor-pointer  hover:border-b-2 hover:border-black active:border-b-2 '>{menuItem.content}</Link>
                 </div>
              )
             })}
         </div>
     </div>
+   </div>
+
  {/* for mobile */}
-    <div className='sm:block md:hidden relative'>
-       <div className='absolute flex bg-white  min-w-full py-6 px-5 gap-60 top-0'>
-            <div className='grow'>
-            <p className='tracking-widest'>THERAPEUTIC TOUCHPOINT</p>
+    <div className='sm:block md:hidden fixed z-30 top-0 left-0 w-full '>
+       <div className=' flex bg-white sticky min-w-full  px-5 gap-48 py-3 top-0 z-20'>
+            <div className='grow '>
+            <p className='tracking-widest '>THERAPEUTIC TOUCHPOINT</p>
             </div>
             <div className=''>
-                <CgMenuRight className='text-3xl cursor-pointer' onClick={()=>{setOpenMenuNav(!openMenuNav)}}/>
+                <CgMenuRight className='text-3xl cursor-pointer hover:bg-gray-100   rounded' onClick={()=>{setOpenMenuNav(!openMenuNav)}}/>
             </div>
         </div>
-        <div className= {`bg-white w-full h-32 absolute ${openMenuNav?"top-20" : "top-[-400px]"} text-left ml-6`}>
+        <div className= {`bg-white w-full h-screen absolute ${openMenuNav?"top-18" : "top-[-1000px]"} text-left pl-6 transition-all ease-in duration-700 delay:400 z-10 `}>
             {menuItems.map(menuItem=>{
                 return (
-                    <div key={menuItem.content} className='py-4'>
-                        <p className='text-sm tracking-widest'>{menuItem.content}</p>         
+                    <div key={menuItem.content} className='my-10 w-fit' onClick={()=>{setOpenMenuNav(!openMenuNav)}}>
+                        <Link href={`${menuItem.path}`} className='text-xs hover:text-gray-400 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer ' >{menuItem.content}</Link>         
                     </div>
                     )
                     })}
         </div>
     </div>
-   </React.Fragment>
+</div>
 
   )
 }
