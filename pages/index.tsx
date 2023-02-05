@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Navbar from '../components/Navbar'
-import TopBanner from '../components/TopBanner'
-import MiddleBanner from '../components/MiddleBanner'
-import Service from '../components/Service'
+import TopBanner from '../components/HomePage/TopBanner'
+import MiddleBanner from '../components/HomePage/MiddleBanner'
+import Service from '../components/HomePage/Service'
+import ServiceDetails from '../components/HomePage/ServiceDetails'
 
 export default function Home() {
   return (
@@ -18,6 +16,7 @@ export default function Home() {
       <TopBanner/>
       <MiddleBanner/>
       <Service/>
+      <ServiceDetails/>
     </main>
       
     </div>
