@@ -3,6 +3,7 @@ import TopBanner from '../components/HomePage/TopBanner'
 import MiddleBanner from '../components/HomePage/MiddleBanner'
 import Service from '../components/HomePage/Service'
 import ServiceDetails from '../components/HomePage/ServiceDetails'
+import Reviews from '../components/Reviews/Reviews'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <MiddleBanner/>
       <Service/>
       <ServiceDetails/>
+      <Reviews/>
     </main>
       
     </div>

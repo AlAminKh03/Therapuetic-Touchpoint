@@ -15,7 +15,7 @@ const TopBanner = (props: Props) => {
            <h1 className='text-6xl font-extralight grow shrink'>Be sitted <br/>  Be setteled</h1>
            </div>
             <p className='py-8'>At your service </p>
-            <Link href="/appointment" className='px-8 py-4 border bg-white text-black'>Book your appointment </Link>
+            <Link href="/appointment" className='px-8 py-4  bg-white text-black hover:bg-black hover:text-white hover:translate-x-1 transition-all ease-in duration-300'>Book your appointment </Link>
         </div>
     </div>
   )
