@@ -6,7 +6,7 @@ type Props = {}
 
 const Footer = (props: Props) => {
   return (
-    <div className='my-20 mx-14'>
+    <div className='mt-28 md:mx-14 bg-gray-50 p-[70px]'>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 '>
             <div>
                 <Link href='/' className='uppercase'>Therapeutic<br/>touchpoint<br/>.com</Link>
