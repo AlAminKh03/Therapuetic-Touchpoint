@@ -1,18 +1,18 @@
 import React from 'react'
 import {useState} from 'react'
 import AppointmentBanner from '../AppointmentBanner/AppointmentBanner'
-import AvailableAppointment from '../AvailableAppointments/AvailableAppointment'
+import AppointmentCards from '../AvailableAppointments/AppointmentCards'
 
 type Props = {}
 
-const Appointments = (props: Props) => {
+const AppointmentsMain = (props: Props) => {
     const [selectedDate, setSelectedDate]= useState<Date>()
   return (
     <div>
         <AppointmentBanner selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
-        <AvailableAppointment selectedDate={selectedDate}/>
+        <AppointmentCards selectedDate={selectedDate}/>
     </div>
   )
 }
 
-export default Appointments
+export default AppointmentsMain

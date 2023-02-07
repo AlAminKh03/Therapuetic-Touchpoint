@@ -8,7 +8,6 @@ interface DateProps {
   setSelectedDate: (date: Date) => void;
 }
 
-type Props = {}
 const AppointmentBanner = ({selectedDate,setSelectedDate}: DateProps) => {
  
   return (

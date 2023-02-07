@@ -3,18 +3,18 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import AppointmentSlot from './AppointmentSlot'
 
- interface DateProps{
+ export interface DateProps{
     selectedDate: Date | undefined
 }
 export interface AppointmentsProps{
-    id:String,
-    name:String,
-    slots: String[]
+    id:string,
+    name:string,
+    slots: string[]
 }
 
-const AvailableAppointment = ({selectedDate}:DateProps) => {
+const AppointmentCards = ({selectedDate}:DateProps) => {
     const [apointmentsData, setAppointmentsData]= useState<AppointmentsProps[]>([])
-
+console.log(selectedDate)
     useEffect(() => {
     fetch("/data/appointmentsSlot.json")
     .then(res=> res.json())
@@ -36,15 +36,14 @@ const AvailableAppointment = ({selectedDate}:DateProps) => {
 {
     apointmentsData.map(data=>{
         return(
-            <div key={data.id as React.Key} className='border mx-12 shadow rounded py-4'>
-                <AppointmentSlot slotData={data}/>
+            <div key={data.id as React.Key} className='border mx-12 shadow rounded'>
+                <AppointmentSlot slotData={data} selectedDate={{selectedDate}}/>
             </div>
-        )
-    })
+        )})
 }
         </div>
     </div>
   )
 }
 
-export default AvailableAppointment
+export default AppointmentCards
