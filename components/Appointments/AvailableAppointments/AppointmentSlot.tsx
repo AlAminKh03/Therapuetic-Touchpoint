@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { BsArrowRight } from 'react-icons/bs';
 import { useState } from 'react'
 import Modal from '../../Modal/Modal';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content'
 
 export interface AppointmentSlotProps {
     slotData: AppointmentsProps;
@@ -11,10 +13,22 @@ export interface AppointmentSlotProps {
   }
 
 const AppointmentSlot = ({ slotData, selectedDate }: AppointmentSlotProps) => {
+  const mySwl= withReactContent(Swal)
   const [isOpen, setIsOpen] = useState(false)
 
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true})
+
 const openModal=()=> {
-    // selectedDate.selectedDate  ? setIsOpen(true) 
+    selectedDate.selectedDate  ? setIsOpen(true) : Toast.fire(
+  {    icon:"error",
+      title:"Please select a date before booking"}
+    )
     
   }
   return (

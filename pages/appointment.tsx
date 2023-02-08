@@ -7,7 +7,6 @@ type Props = {}
 const appointment = (props: Props) => {
   return (
     <div className="relative top-16">
-
       <Appointments/>
       </div>
   )

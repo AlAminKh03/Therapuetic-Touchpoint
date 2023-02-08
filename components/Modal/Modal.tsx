@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { AppointmentsProps , DateProps } from '../Appointments/AvailableAppointments/AppointmentCards'
 import { format } from 'date-fns'
+import Swal from 'sweetalert2'
 
  interface ModalProps{
   isOpen: boolean
@@ -18,45 +19,48 @@ const Modal = ({isOpen, setIsOpen, slotData,selectedDate}:ModalProps) => {
   }
   const date= selectedDate.selectedDate && format(selectedDate.selectedDate,"PP")
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 5000,
+    timerProgressBar: true}) 
+
 
   const handleBooking :React.FormEventHandler<HTMLFormElement> = event  =>{
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const slotInput = form.querySelector<HTMLInputElement>('select[name="slot"]')
-    if(!slotInput){
-      throw new Error('Slot input is Not found')
-    }
-    const slot =slotInput.value
     const nameInput = form.querySelector<HTMLInputElement>('input[name="name"]');
-    if (!nameInput) {
-      throw new Error('Name input not found.');
-    }
-    const name = nameInput.value;
     const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]');
-    if (!emailInput) {
-      throw new Error('Email input not found.');
-    }
-    const email = emailInput.value;
     const phoneNumberInput = form.querySelector<HTMLInputElement>('input[name="phoneNumber"]');
-    if (!phoneNumberInput) {
-      throw new Error('Phone number input not found.');
-    }
-    const phoneNumber = phoneNumberInput.value;
     const addressInput = form.querySelector<HTMLInputElement>('input[name="address"]');
-    if (!addressInput) {
-      throw new Error('Address input not found.');
+    if(!slotInput || !nameInput || !emailInput || !phoneNumberInput || !addressInput){
+     throw new Error("Please insert all data properly")
     }
-    const address = addressInput.value;
-    const booking ={
-      ServiceFor: slotData.name,
-      AppointmentDate: date,
-      AppointedFor : slot,
-      patient:name,
-      email,
-      phoneNumber,
-      address
+    else if (!slotInput.value || !nameInput.value || !emailInput.value || !phoneNumberInput.value || !addressInput.value){
+      Toast.fire(
+        {    icon:"error",
+            title:"Please insert all data properly"}
+          )
     }
-    console.log(booking);
+  else{
+  const slot =slotInput.value
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const phoneNumber = phoneNumberInput.value;
+  const address = addressInput.value;
+  const booking ={
+    ServiceFor: slotData.name,
+    AppointmentDate: date,
+    AppointedFor : slot,
+    patient:name,
+    email,
+    phoneNumber,
+    address
+  }
+  console.log(booking);
+}
   }
   return (
     <div>
