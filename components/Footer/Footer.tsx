@@ -14,7 +14,7 @@ const Footer = (props: Props) => {
             <div>
                 <label htmlFor="email" >
                     <span className='text-xs uppercase mb-3'>Email Address</span> <br/>
-                    <input type="email" name="email" id="email" className='border py-4 outline-none px-14 bg-gray-100'/>
+                    <input type="email" name="email" id="email" className='border py-4 outline-none px-14 bg-gray-100 w-[254px] md:w-fit'/>
                     </label>
                     <br/>
                     <button className='mt-4 bg-black text-white text-center px-[6.10rem] py-4 hover:-translate-y-0.5 transition-all ease-in duration-500'>Receive health tips</button>

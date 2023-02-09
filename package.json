@@ -1,36 +1,51 @@
 {
-  "name": "therapeutic-touchpoint",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.10",
-    "@next/font": "^13.1.6",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "date-fns": "^2.29.3",
-    "eslint": "8.33.0",
-    "eslint-config-next": "13.1.6",
-    "firebase": "^9.17.1",
-    "next": "13.1.6",
-    "react": "18.2.0",
-    "react-day-picker": "^8.5.1",
-    "react-dom": "18.2.0",
-    "react-hook-form": "^7.43.1",
-    "react-icons": "^4.7.1",
-    "sweetalert2": "^11.7.1",
-    "sweetalert2-react-content": "^5.0.7",
-    "typescript": "4.9.5"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.4"
-  }
+   "name": "therapeutic-touchpoint",
+   "version": "0.1.0",
+   "private": true,
+   "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint"
+   },
+   "dependencies": {
+      "@headlessui/react": "^1.7.10",
+      "@next/font": "^13.1.6",
+      "@types/react-dom": "18.0.10",
+      "date-fns": "^2.29.3",
+      "eslint": "8.33.0",
+      "eslint-config-next": "13.1.6",
+      "firebase": "^9.17.1",
+      "next": "13.1.6",
+      "next-env": "^1.1.1",
+      "react": "18.2.0",
+      "react-day-picker": "^8.5.1",
+      "react-dom": "18.2.0",
+      "react-firebase-hooks": "^5.1.1",
+      "react-hook-form": "^7.43.1",
+      "react-icons": "^4.7.1",
+      "sweetalert2": "^11.4.8",
+      "sweetalert2-react-content": "^5.0.7",
+      "typescript": "4.9.5"
+   },
+   "devDependencies": {
+      "@types/firebase": "^3.2.1",
+      "@types/node": "^18.13.0",
+      "@types/react": "^18.0.27",
+      "autoprefixer": "^10.4.13",
+      "postcss": "^8.4.21",
+      "tailwindcss": "^3.2.4"
+   },
+   "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+   "main": "next.config.js",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/AlAminKh03/Therapuetic-Touchpoint.git"
+   },
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/AlAminKh03/Therapuetic-Touchpoint/issues"
+   },
+   "homepage": "https://github.com/AlAminKh03/Therapuetic-Touchpoint#readme"
 }
