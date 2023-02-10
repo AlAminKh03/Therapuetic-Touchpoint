@@ -10,6 +10,7 @@ import {MdHealthAndSafety} from "react-icons/md"
 import {BsFillShieldFill}from "react-icons/bs"
 import Link from 'next/link';
 import { AuthContext } from '../Contexts/AuthProvider';
+import Swal from 'sweetalert2';
 
 interface Inputs {
   name:string,
@@ -17,16 +18,37 @@ interface Inputs {
   password: string,
 };
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 5000,
+  timerProgressBar: true}) 
 
 const Signup = () => {
 
     const {register , handleSubmit, formState: { errors }} = useForm<Inputs>();
-    const {createUser} = useContext(AuthContext)
+    const {createUser,manageUser,user} = useContext(AuthContext)
+    console.log(user)
   const onSubmit:SubmitHandler<Inputs> = (data) =>{
     Promise.resolve(createUser(data.email,data.password))
     .then(result=>{
         const user= result.user
         console.log(result)
+        const userInfo={
+          displayName:data.name
+        }
+      Promise.resolve(manageUser(userInfo))
+      .then(result=>{
+        console.log(result)
+        Toast.fire(
+          {    icon:"success",
+              title:"Account created successfully!"}
+            )
+      })
+      .catch(err=>{
+        console.log(err)
+      })
     })
     .catch(err=>{
       console.log(err)
@@ -42,10 +64,10 @@ const Signup = () => {
       <BsFillPenFill className='text-7xl text-pink-700 absolute top-[270px] left-[350px] z-[2] '/>
     </div>
 <div className='relative top-20 mb-20'>
-  <div className='lg:flex justify-center items-center sm:block md:hidden lg:show'>
-  <BsFillShieldFill className='absolute text-[450px] text-green-50 justify-center items-center md:left-[30px] lg:left-[115px] -top-12 md:-top-10'/>
+  <div className='flex justify-center items-center sm:block md:hidden lg:block'>
+  <BsFillShieldFill className='absolute hidden md:block text-[450px] text-green-50 justify-center items-center  md:left-[30px] lg:left-[112px] -top-12 '/>
   </div>
-<div className='flex justify-center items-center min-h-[40vh] md:min-h-[50vh] gap-2 mt-8 md:mt-1 '>
+<div className='flex justify-center items-center  min-h-[50vh] gap-2 md:mt-1 '>
 
   <form onSubmit={handleSubmit(onSubmit)} className='absolute z-[1]'>
     <div>

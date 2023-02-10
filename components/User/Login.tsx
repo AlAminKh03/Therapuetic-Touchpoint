@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from "react"
 import { useForm, SubmitHandler } from "react-hook-form";
 import {CiHospital1} from "react-icons/ci"
 import {BsSunFill} from "react-icons/bs"
@@ -9,17 +10,42 @@ import {BsTreeFill} from "react-icons/bs"
 import {MdHealthAndSafety} from "react-icons/md"
 import {BsFillShieldFill}from "react-icons/bs"
 import Link from 'next/link';
+import { AuthContext } from '../Contexts/AuthProvider';
+import Swal from 'sweetalert2';
 
 interface Inputs {
   email: string,
   password: string,
 };
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 5000,
+  timerProgressBar: true}) 
+
 const Login = () => {
   const {register , handleSubmit, formState: { errors }} = useForm<Inputs>();
-  const onSubmit:SubmitHandler<Inputs> = (data) =>console.log(data)
-  console.log(errors)
-  
+  const [error,setError]= useState<string>('')
+  const {signInUser}= React.useContext(AuthContext)
+  const onSubmit:SubmitHandler<Inputs> = (data) =>{
+    console.log(data)
+    Promise.resolve(signInUser(data.email,data.password))
+    .then(result=>{
+      const user= result.user
+    })
+    .catch(error=>{
+      console.log(error.message)
+      setError(error.message)
+    })
+  }
+  error && Toast.fire(
+    {    icon:"error",
+        title:`${error}`
+      }
+      )
+
   return (
  <div>
      <div className='grid sm:grid-cols-1 md:grid-cols-2 pb-[40px]'>
@@ -39,9 +65,9 @@ const Login = () => {
   <div className='flex justify-center items-center'>
   <BsFillShieldFill className='absolute text-[400px] text-green-50 justify-center md:left-[30px] lg:left-[135px] -top-5'/>
   </div>
-<div className='flex justify-center items-center min-h-[40vh] md:min-h-[50vh] gap-2 -mt-5 md:mt-1'>
+<div className='flex justify-center items-center min-h-[50vh]  gap-2 -mt-5  md:mt-1'>
 
-  <form onSubmit={handleSubmit(onSubmit)} className='absolute z-[1]'>
+  <form onSubmit={handleSubmit(onSubmit)} className='z-[1]'>
    <div>
     <label>Email* : </label><br/>
     <input type='text' {...register('email',{required:true})} 
