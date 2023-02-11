@@ -22,6 +22,9 @@ a {
 .animation-durationfr{
   animation-duration: 20000ms !important;
 }
+.animation-durationLd{
+  animation-duration: 10000ms !important;
+}
 @keyframes orbit-container {
   from {
     transform: rotate(0deg);
