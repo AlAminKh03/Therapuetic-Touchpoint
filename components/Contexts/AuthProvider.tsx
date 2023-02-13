@@ -14,7 +14,7 @@ interface OnAuthStateProps {
   [key: string]: any;
 }
 const defaultOnAuthStateProps: OnAuthStateProps = {
-  user: null,
+  user: undefined,
 };
 
 export const AuthContext = createContext({
@@ -28,10 +28,7 @@ export const AuthContext = createContext({
   signOutUser: () => {
     return signOut(auth);
   },
-  manageUser: (userInfo: {
-    displayName?: string | null | undefined;
-    photoURL?: string | null | undefined;
-  }) => {},
+  manageUser: (userInfo: { displayName: string }) => {},
   loading: true,
   setLoading: (value: boolean) => {},
   resetPassword: (email: string) => {
@@ -44,7 +41,6 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
-
   const createUser = (email: string, password: string) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -55,11 +51,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const manageUser = (userInfo: {
-    displayName?: string | null | undefined;
-    photoURL?: string | null | undefined;
-  }) => {
-    return updateProfile(user, userInfo);
+  const manageUser = (userInfo: { displayName: string }) => {
+    if (auth.currentUser) {
+      return updateProfile(auth.currentUser, userInfo);
+    }
   };
 
   const signOutUser = () => {
@@ -73,7 +68,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
   useEffect(() => {
     const unsbscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       setUser(currentUser);
       setLoading(false);
     });

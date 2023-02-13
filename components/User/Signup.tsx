@@ -11,6 +11,7 @@ import { BsFillShieldFill } from "react-icons/bs";
 import Link from "next/link";
 import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 
 interface Inputs {
   name: string;
@@ -34,7 +35,7 @@ const Signup = () => {
   } = useForm<Inputs>();
   const { createUser, manageUser, user, loading, setLoading } =
     useContext(AuthContext);
-
+  const router = useRouter();
   if (loading) {
     return (
       <div className=" min-h-screen flex items-center justify-center felx-col">
@@ -54,10 +55,13 @@ const Signup = () => {
         Promise.resolve(manageUser(userInfo))
           .then((result) => {
             console.log(result);
+            console.log(userInfo);
             Toast.fire({
               icon: "success",
               title: "Account created successfully!",
             });
+            router.push("/");
+            setLoading(false);
           })
           .catch((err) => {
             console.log(err);

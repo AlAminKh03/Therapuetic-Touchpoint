@@ -1,71 +1,106 @@
-import React from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
-import { AppointmentsProps , DateProps } from '../Appointments/AvailableAppointments/AppointmentCards'
-import { format } from 'date-fns'
-import Swal from 'sweetalert2'
+import React, { useContext } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import {
+  AppointmentsProps,
+  DateProps,
+} from "../Appointments/AvailableAppointments/AppointmentCards";
+import { format } from "date-fns";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Contexts/AuthProvider";
 
- interface ModalProps{
-  isOpen: boolean
-  setIsOpen:  React.Dispatch<React.SetStateAction<boolean>>
-  slotData: AppointmentsProps
-  selectedDate:DateProps
- }
+interface ModalProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  slotData: AppointmentsProps;
+  selectedDate: DateProps;
+}
 
-const Modal = ({isOpen, setIsOpen, slotData,selectedDate}:ModalProps) => {
- 
-  const closeModal=()=>{
-    setIsOpen(false)
-  }
-  const date= selectedDate.selectedDate && format(selectedDate.selectedDate,"PP")
+const Modal = ({ isOpen, setIsOpen, slotData, selectedDate }: ModalProps) => {
+  const { user } = useContext(AuthContext);
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  const date =
+    selectedDate.selectedDate && format(selectedDate.selectedDate, "PP");
 
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: "top-end",
     showConfirmButton: false,
     timer: 5000,
-    timerProgressBar: true}) 
+    timerProgressBar: true,
+  });
 
-
-  const handleBooking :React.FormEventHandler<HTMLFormElement> = event  =>{
+  const handleBooking: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    const slotInput = form.querySelector<HTMLInputElement>('select[name="slot"]')
-    const nameInput = form.querySelector<HTMLInputElement>('input[name="name"]');
-    const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]');
-    const phoneNumberInput = form.querySelector<HTMLInputElement>('input[name="phoneNumber"]');
-    const addressInput = form.querySelector<HTMLInputElement>('input[name="address"]');
-    if(!slotInput || !nameInput || !emailInput || !phoneNumberInput || !addressInput){
-     throw new Error("Please insert all data properly")
+    const slotInput = form.querySelector<HTMLInputElement>(
+      'select[name="slot"]'
+    );
+    const nameInput =
+      form.querySelector<HTMLInputElement>('input[name="name"]');
+    const emailInput = form.querySelector<HTMLInputElement>(
+      'input[name="email"]'
+    );
+    const phoneNumberInput = form.querySelector<HTMLInputElement>(
+      'input[name="phoneNumber"]'
+    );
+    const addressInput = form.querySelector<HTMLInputElement>(
+      'input[name="address"]'
+    );
+    if (
+      !slotInput ||
+      !nameInput ||
+      !emailInput ||
+      !phoneNumberInput ||
+      !addressInput
+    ) {
+      throw new Error("Please insert all data properly");
+    } else if (
+      !slotInput.value ||
+      !nameInput.value ||
+      !emailInput.value ||
+      !phoneNumberInput.value ||
+      !addressInput.value
+    ) {
+      Toast.fire({ icon: "error", title: "Please insert all data properly" });
+    } else {
+      const slot = slotInput.value;
+      const name = nameInput.value;
+      const email = emailInput.value;
+      const phoneNumber = phoneNumberInput.value;
+      const address = addressInput.value;
+      const booking = {
+        ServiceFor: slotData.name,
+        AppointmentDate: date,
+        AppointmentTime: slot,
+        patient: name,
+        email,
+        phoneNumber,
+        address,
+      };
+
+      fetch("http://localhost:8000/booking", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          Toast.fire({
+            icon: "success",
+            title: "Booking Successful go to the dashboard for payment",
+          });
+        });
     }
-    else if (!slotInput.value || !nameInput.value || !emailInput.value || !phoneNumberInput.value || !addressInput.value){
-      Toast.fire(
-        {    icon:"error",
-            title:"Please insert all data properly"}
-          )
-    }
-  else{
-  const slot =slotInput.value
-  const name = nameInput.value;
-  const email = emailInput.value;
-  const phoneNumber = phoneNumberInput.value;
-  const address = addressInput.value;
-  const booking ={
-    ServiceFor: slotData.name,
-    AppointmentDate: date,
-    AppointedFor : slot,
-    patient:name,
-    email,
-    phoneNumber,
-    address
-  }
-  console.log(booking);
-}
-  }
+  };
   return (
     <div>
-   
-   <Transition appear show={isOpen} as={Fragment} >
+      <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -76,68 +111,106 @@ const Modal = ({isOpen, setIsOpen, slotData,selectedDate}:ModalProps) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-           
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
           <form onSubmit={handleBooking}>
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex m-16 md:m-0 md:min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900 uppercase"
-                  >
-                   {slotData.name}
-                  </Dialog.Title>
-                
-                  <div className="mt-2 m-3 md:m-6 p-4">
-                    <p className="text-sm text-gray-500">
-                      configure your appointment time at our available time
-                    </p>
-                  
-                    <input type='text' className= {`bg-black ${date?"text-white": "text-red-500"} w-full text-center p-2  text-xl`} disabled value={date? date :"Please choose a date"} ></input>
-                    <select className='w-full  border py-2 mt-2' name="slot">
-                      {slotData.slots.map(slot=>{
-                        return ( 
-                          <option className='text-center text-xl' value={slot}  >{slot}</option>
-                        )
-                      })}
-                    </select>
-                    <input type='text' name='name' placeholder='Enter your Name' className='w-full  border py-2 mt-2 pl-3'/><br/>
-                    <input type='email' name='email' placeholder="Enter your email" className='w-full  border py-2 mt-2 pl-3'/><br/>
-                    <input type='text' name='phoneNumber' placeholder='Enter your Phone Number' className='w-full  border py-2 mt-2 pl-3'/><br/>
-                    <input type='text' name="address"  placeholder='Enter your Address' className='w-full  border py-2 mt-2 pl-3'/><br/>
-
-                  </div>
-
-                  <div className="mt-4">
-                    <button
-                      type="submit" value={"submit"}
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
+            <div className="fixed inset-0 overflow-y-auto">
+              <div className="flex m-16 md:m-0 md:min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-lg font-medium leading-6 text-gray-900 uppercase"
                     >
-                      Book
-                    </button>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
+                      {slotData.name}
+                    </Dialog.Title>
+
+                    <div className="mt-2 m-3 md:m-6 p-4">
+                      <p className="text-sm text-gray-500">
+                        configure your appointment time at our available time
+                      </p>
+
+                      <input
+                        type="text"
+                        className={`bg-black ${
+                          date ? "text-white" : "text-red-500"
+                        } w-full text-center p-2  text-xl`}
+                        disabled
+                        value={date ? date : "Please choose a date"}
+                      ></input>
+                      <select className="w-full  border py-2 mt-2" name="slot">
+                        {slotData.slots.map((slot) => {
+                          return (
+                            <option
+                              className="text-center text-xl"
+                              value={slot}
+                            >
+                              {slot}
+                            </option>
+                          );
+                        })}
+                      </select>
+                      <input
+                        type="text"
+                        name="name"
+                        value={user?.displayName}
+                        disabled
+                        placeholder="Enter your name"
+                        className="w-full  border py-2 mt-2 pl-3"
+                      />
+                      <br />
+                      <input
+                        type="email"
+                        name="email"
+                        value={user?.email}
+                        disabled
+                        placeholder="Enter your email"
+                        className="w-full  border py-2 mt-2 pl-3"
+                      />
+                      <br />
+                      <input
+                        type="text"
+                        name="phoneNumber"
+                        placeholder="Enter your Phone Number"
+                        className="w-full  border py-2 mt-2 pl-3"
+                      />
+                      <br />
+                      <input
+                        type="text"
+                        name="address"
+                        placeholder="Enter your Address"
+                        className="w-full  border py-2 mt-2 pl-3"
+                      />
+                      <br />
+                    </div>
+
+                    <div className="mt-4">
+                      <button
+                        type="submit"
+                        value={"submit"}
+                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        onClick={closeModal}
+                      >
+                        Book
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
             </div>
-          </div>
           </form>
         </Dialog>
       </Transition>
-
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;
