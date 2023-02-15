@@ -1,14 +1,13 @@
+import Link from "next/link";
 import React from "react";
 import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
-import DashboardProtected from "../../components/PrivateRoute/DashboardProtected";
-import Link from "next/link";
 
 type Props = {};
 
-const dashboard = (props: Props) => {
+const dashboard3 = (props: Props) => {
   return (
-    <div className="relative top-20">
-      <PrivateRoute>
+    <PrivateRoute>
+      <div className="relative top-20">
         <div className="flex items-center justify-center gap-3 ">
           <Link
             href="/dashboard/dashboard1"
@@ -29,10 +28,8 @@ const dashboard = (props: Props) => {
             Dashboard3
           </Link>
         </div>
-        <DashboardProtected />
-      </PrivateRoute>
-    </div>
+      </div>
+    </PrivateRoute>
   );
 };
-
-export default dashboard;
+export default dashboard3;

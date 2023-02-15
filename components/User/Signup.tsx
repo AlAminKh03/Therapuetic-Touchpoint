@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { CgNotes } from "react-icons/cg";
 import { BsSunFill } from "react-icons/bs";
@@ -12,8 +12,9 @@ import Link from "next/link";
 import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
+import useToken from "../hooks/useTOken";
 
-interface Inputs {
+interface InputsProps {
   name: string;
   email: string;
   password: string;
@@ -28,14 +29,23 @@ const Toast = Swal.mixin({
 });
 
 const Signup = () => {
+  const [createdUserEmail, setCreatedUserEmail] = useState<string>("");
+  const [token] = useToken(createdUserEmail);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<InputsProps>();
+
+  // importing essentials from useContext
   const { createUser, manageUser, user, loading, setLoading } =
     useContext(AuthContext);
   const router = useRouter();
+
+  if (token) {
+    router.push("/");
+  }
+  // loading state
   if (loading) {
     return (
       <div className=" min-h-screen flex items-center justify-center felx-col">
@@ -44,7 +54,9 @@ const Signup = () => {
       </div>
     );
   }
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+
+  // form submit
+  const onSubmit: SubmitHandler<InputsProps> = (data) => {
     Promise.resolve(createUser(data.email, data.password))
       .then((result) => {
         const user = result.user;
@@ -54,13 +66,7 @@ const Signup = () => {
         };
         Promise.resolve(manageUser(userInfo))
           .then((result) => {
-            console.log(result);
-            console.log(userInfo);
-            Toast.fire({
-              icon: "success",
-              title: "Account created successfully!",
-            });
-            router.push("/");
+            saveUser(data.name, data.email);
             setLoading(false);
           })
           .catch((err) => {
@@ -71,6 +77,26 @@ const Signup = () => {
         setLoading(false);
         Toast.fire({ icon: "error", title: `${err.message}` });
         console.log(err);
+      });
+  };
+
+  // postng credintial to backend
+  const saveUser = (name: string, email: string) => {
+    const user = {
+      name,
+      email,
+    };
+    fetch("http://localhost:8000/user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCreatedUserEmail(email);
       });
   };
 

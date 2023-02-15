@@ -20,7 +20,11 @@ export interface AppointmentsProps {
 const AppointmentCards = ({ selectedDate }: DateProps) => {
   const date = selectedDate && format(selectedDate, "PP");
   console.log(date);
-  const { data: apointmentsData, isLoading } = useQuery<AppointmentsProps[]>({
+  const {
+    data: apointmentsData,
+    isLoading,
+    refetch,
+  } = useQuery<AppointmentsProps[]>({
     queryKey: ["appointmentData", date],
 
     queryFn: async () => {
@@ -35,7 +39,7 @@ const AppointmentCards = ({ selectedDate }: DateProps) => {
     return (
       <div className=" min-h-screen flex items-center justify-center felx-col">
         <MdHealthAndSafety className="text-7xl text-green-500 animate-spin animation-durationLd" />
-        <p className="tracking-wider text-sm">Logging In ....</p>
+        <p className="tracking-wider text-sm">Processing ....</p>
       </div>
     );
   }
@@ -62,6 +66,7 @@ const AppointmentCards = ({ selectedDate }: DateProps) => {
               >
                 <AppointmentSlot
                   slotData={data}
+                  refetch={refetch}
                   selectedDate={{ selectedDate }}
                 />
               </div>

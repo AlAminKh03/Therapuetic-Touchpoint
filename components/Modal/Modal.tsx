@@ -8,15 +8,23 @@ import {
 import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Contexts/AuthProvider";
+import { QueryObserverResult } from "@tanstack/query-core/build/lib/types";
 
 interface ModalProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   slotData: AppointmentsProps;
   selectedDate: DateProps;
+  refetch: () => Promise<QueryObserverResult<AppointmentsProps[], unknown>>;
 }
 
-const Modal = ({ isOpen, setIsOpen, slotData, selectedDate }: ModalProps) => {
+const Modal = ({
+  isOpen,
+  setIsOpen,
+  slotData,
+  selectedDate,
+  refetch,
+}: ModalProps) => {
   const { user } = useContext(AuthContext);
   const closeModal = () => {
     setIsOpen(false);
@@ -91,10 +99,17 @@ const Modal = ({ isOpen, setIsOpen, slotData, selectedDate }: ModalProps) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          if (data._id) {
+            return Toast.fire({
+              icon: "success",
+              title: "Booking Successful go to the dashboard for payment",
+            });
+          }
           Toast.fire({
-            icon: "success",
-            title: "Booking Successful go to the dashboard for payment",
+            icon: "error",
+            title: `${data.message}`,
           });
+          refetch();
         });
     }
   };
