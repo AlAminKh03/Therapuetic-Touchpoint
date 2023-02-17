@@ -2,36 +2,20 @@ import React from "react";
 import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
 import DashboardProtected from "../../components/PrivateRoute/DashboardProtected";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import NestedRoutingNav from "../../components/PrivateRoute/NestedRoutingNav";
 
 type Props = {};
 
 const dashboard = (props: Props) => {
+  const router = useRouter();
   return (
-    <div className="relative top-20">
-      <PrivateRoute>
-        <div className="flex items-center justify-center gap-3 ">
-          <Link
-            href="/dashboard/dashboard1"
-            className="border border-black p-2 rounded-full hover:shadow-md active:bg-black active:text-white"
-          >
-            Dashboard1
-          </Link>
-          <Link
-            href="/dashboard/dashboard2"
-            className="border border-black p-2 rounded-full hover:shadow-md active:bg-black active:text-white"
-          >
-            Dashboard2
-          </Link>
-          <Link
-            href="/dashboard/dashboard3"
-            className="border border-black p-2 rounded-full hover:shadow-md active:bg-black active:text-white"
-          >
-            Dashboard3
-          </Link>
-        </div>
+    <PrivateRoute>
+      <div className="relative top-20">
+        <NestedRoutingNav />
         <DashboardProtected />
-      </PrivateRoute>
-    </div>
+      </div>
+    </PrivateRoute>
   );
 };
 

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React from "react";
+import NestedRoutingNav from "../../components/PrivateRoute/NestedRoutingNav";
 import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
 
 type Props = {};
@@ -8,26 +8,7 @@ const dashboard1 = (props: Props) => {
   return (
     <PrivateRoute>
       <div className="relative top-20">
-        <div className="flex items-center justify-center gap-3 ">
-          <Link
-            href="/dashboard/dashboard1"
-            className="border border-black p-2 rounded-full hover:shadow-md active:bg-black active:text-white"
-          >
-            Dashboard1
-          </Link>
-          <Link
-            href="/dashboard/dashboard2"
-            className="border border-black p-2 rounded-full hover:shadow-md active:bg-black active:text-white"
-          >
-            Dashboard2
-          </Link>
-          <Link
-            href="/dashboard/dashboard3"
-            className="border border-black p-2 rounded-full hover:shadow-md active:bg-black active:text-white"
-          >
-            Dashboard3
-          </Link>
-        </div>
+        <NestedRoutingNav />
       </div>
     </PrivateRoute>
   );

@@ -41,6 +41,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
+  console.log(user);
   const createUser = (email: string, password: string) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);

@@ -1,26 +1,62 @@
-import React, { useContext, useEffect } from 'react'
-import { AuthContext } from '../Contexts/AuthProvider'
-import Router from 'next/router'
+// import React, { useContext, useEffect } from "react";
+// import { AuthContext } from "../Contexts/AuthProvider";
+// import Router from "next/router";
+
+// const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
+//   const { user, loading, setLoading } = useContext(AuthContext);
+
+//   useEffect(() => {
+//     setLoading(true);
+//     if (!user) {
+//       const from = Router.asPath;
+//       Router.push(`/login?from=${from}`);
+//     }
+//   }, [user]);
+//   if (user) {
+//     return <React.Fragment>{children}</React.Fragment>;
+//   }
+
+//   console.log(user);
+
+//   if (loading) {
+//     return <p>Loading....</p>;
+//   }
+
+//   return null;
+// };
+
+// export default PrivateRoute;
+
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Contexts/AuthProvider";
+import Router from "next/router";
 
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
-  const { user,loading } = useContext(AuthContext)
-
-  if(loading){
-    return <p>Loading....</p>
-  }
+  const { user, loading, setLoading } = useContext(AuthContext);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    if (!user) {
-      const from = Router.asPath
-      Router.push(`/login?from=${from}`)
+    if (!loading) {
+      setIsReady(true);
     }
-  }, [user])
+  }, [loading]);
 
-  if (user) {
-    return <React.Fragment>{children}</React.Fragment>
+  useEffect(() => {
+    if (!user && isReady) {
+      const from = Router.asPath;
+      Router.push(`/login?from=${from}`);
+    }
+  }, [user, isReady]);
+
+  if (!isReady) {
+    return <p>Loading...</p>;
   }
 
-  return null
-}
+  if (!user) {
+    return null;
+  }
 
-export default PrivateRoute
+  return <React.Fragment>{children}</React.Fragment>;
+};
+
+export default PrivateRoute;

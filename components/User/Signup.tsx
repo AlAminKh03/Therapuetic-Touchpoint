@@ -12,7 +12,7 @@ import Link from "next/link";
 import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
-import useToken from "../hooks/useTOken";
+import useToken from "../hooks/useToken";
 
 interface InputsProps {
   name: string;
@@ -101,19 +101,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 pb-[40px] pt-[100px] ">
-      <div className="relative hidden md:block ">
-        <BsSunFill className="text-7xl text-red-500 absolute top-20 left-20 animate-spin animation-durationfr" />
-        <CgNotes className="text-[15rem]  text-blue-500 absolute top-28 left-48 z-[1]" />
-        <MdHealthAndSafety className="text-8xl  text-green-700 absolute top-20 left-[370px]" />
-        <BsFillPenFill className="text-7xl text-pink-700 absolute top-[270px] left-[350px] z-[2] " />
-      </div>
-      <div className="relative top-20 mb-20">
-        <div className="flex justify-center items-center sm:block md:hidden lg:block">
-          <BsFillShieldFill className="absolute hidden md:block text-[450px] text-green-50 justify-center items-center  md:left-[30px] lg:left-[112px] -top-12 " />
-        </div>
-        <div className="flex justify-center items-center  min-h-[50vh] gap-2 md:mt-1 ">
-          <form onSubmit={handleSubmit(onSubmit)} className="absolute z-[1]">
+    <div>
+      <div className="flex justify-center items-center min-h-[50vh]  ">
+        <div className="relative top-20 mb-20">
+          <form onSubmit={handleSubmit(onSubmit)} className=" z-[1]">
             <div>
               <label>Name* : </label>
               <br />
