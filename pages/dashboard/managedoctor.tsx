@@ -4,6 +4,7 @@ import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
 import { SubmitHandler, useForm } from "react-hook-form";
 import AdminRoute from "../../components/PrivateRoute/AdminRoute";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 interface InputsProps {
   name: string;
@@ -17,6 +18,13 @@ interface appointmentsNameProps {
   name: string;
   _id: string;
 }
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 5000,
+  timerProgressBar: true,
+});
 
 const managedoctor = () => {
   const ImageHostKey = process.env.NEXT_PUBLIC_IMAGE_BB_KEY;
@@ -48,15 +56,31 @@ const managedoctor = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
+        console.log(imageData);
         if (imageData.success) {
           const doctor = {
             name: data.name,
             email: data.email,
             appointmentsName: data.appointmentsName,
-            imageUrl: imageData.data.url,
+            imageUrl: imageData.data.display_url,
           };
-
-          fetch("");
+          console.log(doctor);
+          fetch("http://localhost:8000/doctors", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(doctor),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              Toast.fire({
+                icon: "success",
+                title: "Doctor's data saved successfully",
+              });
+            });
         }
       });
   };

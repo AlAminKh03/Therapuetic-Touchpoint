@@ -15,6 +15,8 @@ export interface AppointmentsProps {
   id: string;
   name: string;
   slots: string[];
+  price: string;
+  imgUrl: string;
 }
 
 const AppointmentCards = ({ selectedDate }: DateProps) => {

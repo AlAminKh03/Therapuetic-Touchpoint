@@ -1,19 +1,13 @@
 import * as React from "react";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { CiHospital1 } from "react-icons/ci";
-import { BsSunFill } from "react-icons/bs";
-import { CgTrees } from "react-icons/cg";
-import { FaAmbulance } from "react-icons/fa";
-import { TbTrees } from "react-icons/tb";
-import { BsTreeFill } from "react-icons/bs";
 import { MdHealthAndSafety } from "react-icons/md";
-import { BsFillShieldFill } from "react-icons/bs";
 import Link from "next/link";
 import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 import useToken from "../hooks/useToken";
+import Image from "next/image";
 
 interface Inputs {
   email: string;
@@ -77,85 +71,91 @@ const Login = () => {
   const handleReset = () => {};
 
   return (
-    <div>
-      <div className="flex justify-center items-center min-h-[50vh]  gap-2 -mt-5  md:mt-1">
-        <div className="relative top-20 mb-20">
-          <form onSubmit={handleSubmit(onSubmit)} className="z-[1]">
-            <div>
-              <label>Email* : </label>
-              <br />
-              <input
-                type="text"
-                {...register("email", { required: true })}
-                className={`border p-2 outline-none ${
-                  errors.email
-                    ? "focus:border-red-500"
-                    : "focus:border-green-500"
-                }`}
-              />
-              {errors.email?.type === "required" && (
-                <p className="text-red-600 text-center text-xs font-light">
-                  {" "}
-                  Please fillup the email Input
-                </p>
-              )}
-            </div>
+    <div className="flex w-fit mx-auto shadow-2xl justify-center items-center rounded-2xl ">
+      <div className="relative w-[400px] h-[500px] hidden md:block">
+        <Image
+          src={"/home.jpg"}
+          alt={"loginImg"}
+          fill
+          className="grow border rounded-tl-xl rounded-bl-xl shadow-2xl shadow-pink-100"
+        />
+      </div>
 
-            <div>
-              <label>Password : </label>
-              <br />
-              <input
-                type="password"
-                {...register("password", { required: true, minLength: 6 })}
-                className={`border p-2 outline-none ${
-                  errors.password
-                    ? "focus:border-red-500"
-                    : "focus:border-green-500"
-                }`}
-              />
-              {errors.password?.type === "required" && (
-                <p className="text-red-600 text-center text-xs font-light">
-                  {" "}
-                  Please fillup the Password Input
-                </p>
-              )}
-              {errors.password?.type === "minLength" && (
-                <p className="text-red-600 text-center text-xs font-light">
-                  {" "}
-                  Please insert atleast 6 chracters
-                </p>
-              )}
-              <br />
-
-              <label className=" text-center text-xs font-light">
-                Forget Password?{" "}
-                <Link
-                  href={"/resetPassword"}
-                  className="cursor-pointer text-green-500"
-                >
-                  Reset Password
-                </Link>
-              </label>
-            </div>
-
-            <div className="flex justify-center items-center flex-col">
-              <button
-                type="submit"
-                className="text-center text-white border bg-green-600 w-1/2 p-[10px] mt-5 hover:bg-white hover:text-black transition-all ease-in duration-300"
-              >
+      <div className=" px-20 py-10 z-[10] bg-white">
+        <p className="font-light text-2xl text-center mb-5 uppercase">Login</p>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="pb-4">
+            <label className="uppercase text-sm">Email : </label>
+            <br />
+            <input
+              type="text"
+              {...register("email", { required: true })}
+              className={`border-2 p-2 outline-none rounded-2xl ${
+                errors.email ? "focus:border-red-600" : "focus:border-pink-200"
+              }`}
+            />
+            {errors.email?.type === "required" && (
+              <p className="text-red-600 text-center text-xs font-light">
                 {" "}
-                Login
-              </button>
-              <p className="text-sm pt-2">
-                New user?{" "}
-                <Link href={"/signup"} className="text-green-600 font-light">
-                  {" "}
-                  Create a account here
-                </Link>
+                Please fillup the email Input
               </p>
-            </div>
-          </form>
-        </div>
+            )}
+          </div>
+
+          <div>
+            <label className="uppercase text-sm">Password : </label>
+            <br />
+            <input
+              type="password"
+              {...register("password", { required: true, minLength: 6 })}
+              className={`border-2  p-2 outline-none rounded-2xl ${
+                errors.password
+                  ? "focus:border-red-600"
+                  : "focus:border-pink-200"
+              }`}
+            />
+            {errors.password?.type === "required" && (
+              <p className="text-red-600 text-center text-xs font-light">
+                {" "}
+                Please fillup the Password Input
+              </p>
+            )}
+            {errors.password?.type === "minLength" && (
+              <p className="text-red-600 text-center text-xs font-light">
+                {" "}
+                Please insert atleast 6 chracters
+              </p>
+            )}
+            <br />
+
+            <label className=" text-center text-xs font-light">
+              Forget Password?{" "}
+              <Link
+                href={"/resetPassword"}
+                className="cursor-pointer text-pink-700"
+              >
+                Reset Password
+              </Link>
+            </label>
+          </div>
+
+          <div className="relative">
+            <button
+              type="submit"
+              className=" w-full text-center text-white border bg-pink-600  p-[10px] mt-5  hover:-translate-y-0.5 transition-all ease-in duration-500 rounded-2xl"
+            >
+              {" "}
+              Login
+            </button>
+            <p className="text-sm pt-2">
+              New user?{" "}
+              <Link href={"/signup"} className="text-pink-600 font-light">
+                {" "}
+                Create an account here
+              </Link>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   );

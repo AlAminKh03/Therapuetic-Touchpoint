@@ -44,40 +44,36 @@ const AppointmentSlot = ({
       <p className="text-2xl font-extralight py-3 uppercase text-center">
         {slotData.name}
       </p>
-      <div className="md:flex justify-evenly grid grid-cols-1  gap-2">
+      <div className="md:flex justify-evenly items-center grid grid-cols-1  gap-2">
         <div className="relative w-[250px] h-[200px] mx-auto md:mx-[0] ">
-          {slotData.name === "dental" && (
-            <Image
-              src="/brush.jpg"
-              alt="dental"
-              fill
-              className="rounded mx-auto"
-            ></Image>
-          )}
-          {slotData.name === "Neurology" && (
-            <Image
-              src="/brain.jpg"
-              alt="brain"
-              fill
-              className="rounded mx-auto"
-            ></Image>
-          )}
+          <Image
+            src={`${slotData.imgUrl}`}
+            alt="dental"
+            fill
+            className="rounded mx-auto"
+          ></Image>
         </div>
         <div>
+          <p className="text-xs">Appointment available from :</p>
           <p>{slotData.slots[0]}</p>
-          <p>{slotData.slots.length} spaces available</p>
+          <div className="border border-green-400 text-center mt-2">
+            <p className=" bg-black text-white  py-1 hover:-translate-y-1 hover:-translate-x-1 transform ease-in duration-500">
+              {slotData.slots.length} spaces available
+            </p>
+          </div>
+          <p className="mt-1">
+            Booking price{" "}
+            <span className="text-green-400 text-sm">${slotData.price}</span>
+          </p>
         </div>
       </div>
       <div className="flex justify-center">
-        {/* <button className='bg-black p-1 text-white font-light h-full mt-3 w-full hover:-translate-y-0.5 transition-all ease-in duration-500 py-4 flex justify-center items-center gap-3'>Book Appointment for {slotData.name} </button> */}
-        {/* <label htmlFor="my-modal-3" className="btn bg-black p-1 text-white font-light h-full mt-3 w-full hover:-translate-y-0.5 transition-all ease-in duration-500 py-4 flex justify-center items-center gap-3 cursor-pointer">open modal <BsArrowRight className='textwhite text-xl'/></label> 
-    <div className="fixed inset-0 flex items-center justify-center"> */}
         <button
           type="button"
           onClick={openModal}
           className="btn bg-black p-1 text-white font-light h-full mt-3 w-full hover:-translate-y-0.5 transition-all ease-in duration-500 py-4 flex justify-center items-center gap-3 cursor-pointer"
         >
-          Open dialog <BsArrowRight className="textwhite text-xl" />
+          Book Appointment <BsArrowRight className="textwhite text-xl" />
         </button>
       </div>
       {selectedDate && (

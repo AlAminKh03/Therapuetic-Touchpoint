@@ -13,6 +13,7 @@ import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 import useToken from "../hooks/useToken";
+import Image from "next/image";
 
 interface InputsProps {
   name: string;
@@ -102,16 +103,33 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center min-h-[50vh]  ">
-        <div className="relative top-20 mb-20">
+      <div className="flex w-fit mx-auto shadow-2xl justify-center items-center rounded-2xl">
+        <div className="relative w-[430px] h-[500px] hidden md:block">
+          <p className=" absolute top-36 left-3 font-light text-white text-lg text-center z-10 ">
+            Welcome to
+          </p>
+          <p className="font-bold top-44 left-3 absolute text-white text-lg text-center  uppercase z-10">
+            Therapeutic Touchpoint
+          </p>
+          <Image
+            src={"/signin.jpg"}
+            alt={"loginImg"}
+            fill
+            className="grow border rounded-tl-xl rounded-bl-xl shadow-2xl shadow-pink-100"
+          />
+        </div>
+        <div className="px-20 py-10 z-[10] bg-white">
+          <p className="font-light text-xl text-center mb-5 ">
+            Please Register
+          </p>
           <form onSubmit={handleSubmit(onSubmit)} className=" z-[1]">
-            <div>
-              <label>Name* : </label>
+            <div className="pb-2">
+              <label className="uppercase text-xs">Name : </label>
               <br />
               <input
                 type="text"
                 {...register("name", { required: true, minLength: 3 })}
-                className={`border p-2 outline-none ${
+                className={`border-2 p-2 outline-none rounded-2xl ${
                   errors.name
                     ? "focus:border-red-500"
                     : "focus:border-green-500"
@@ -124,13 +142,13 @@ const Signup = () => {
                 </p>
               )}
             </div>
-            <div>
-              <label>Email* : </label>
+            <div className="pb-2">
+              <label className="uppercase text-xs">Email : </label>
               <br />
               <input
                 type="text"
                 {...register("email", { required: true })}
-                className={`border p-2 outline-none ${
+                className={`border-2 p-2 outline-none rounded-2xl ${
                   errors.email
                     ? "focus:border-red-500"
                     : "focus:border-green-500"
@@ -144,15 +162,15 @@ const Signup = () => {
               )}
             </div>
             <div>
-              <label>Password : </label>
+              <label className="uppercase text-xs">Password : </label>
               <br />
               <input
                 type="password"
                 {...register("password", {
                   required: true,
-                  pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])(.{6,})$/,
+                  minLength: 6,
                 })}
-                className={`border p-2 outline-none ${
+                className={`border-2 p-2 outline-none  rounded-2xl ${
                   errors.password
                     ? "focus:border-red-500"
                     : "focus:border-green-500"
@@ -164,18 +182,17 @@ const Signup = () => {
                   Please fillup the Password Input
                 </p>
               )}
-              {errors.password?.type === "pattern" && (
+              {errors.password?.type === "minLength" && (
                 <p className="text-red-600 text-center text-xs font-light">
                   {" "}
-                  Insert atleast One capital letter one small letter <br />
-                  and one special character[!@#$%^&*]
+                  Insert atleast 6 character
                 </p>
               )}
             </div>
             <div className="flex justify-center items-center flex-col">
               <button
                 type="submit"
-                className="text-center text-white border bg-green-600 w-1/2 p-[10px] mt-5 hover:bg-white hover:text-black transition-all ease-in duration-300"
+                className="w-full text-center text-white border bg-black p-[10px] mt-5  hover:-translate-y-0.5 transition-all ease-in duration-500 rounded-2xl"
               >
                 {" "}
                 signup

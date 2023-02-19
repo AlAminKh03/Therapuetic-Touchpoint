@@ -48,7 +48,7 @@ const DashboardProtected = () => {
               <th className="px-4 py-2"></th>
               <th className="px-4 py-2"> Name</th>
               <th className="px-4 py-2">Job</th>
-              <th className="px-4 py-2">Favorite Color</th>
+              <th className="px-4 py-2">Date and Time</th>
             </tr>
           </thead>
           <tbody>

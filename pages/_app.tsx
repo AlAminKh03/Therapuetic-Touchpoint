@@ -10,13 +10,19 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const isLoginPage = router.pathname === "/login";
+  const isSignUpPage = router.pathname === "/signup";
+  const isDashBoard = router.pathname === "/dashboard";
   const queryClient = new QueryClient();
+
   return (
     <main
       className={`${inter.className}  bg-fixed min-h-screen bg-center  bg-cover z-[4]`}
@@ -25,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <AuthProvider>
           <Navbar />
           <Component {...pageProps} />
+          {/* {!isLoginPage || !isSignUpPage || (!isDashBoard && <Footer />)} */}
           <Footer />
         </AuthProvider>
       </QueryClientProvider>
