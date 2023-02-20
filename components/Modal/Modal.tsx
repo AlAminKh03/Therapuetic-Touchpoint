@@ -87,7 +87,9 @@ const Modal = ({
         email,
         phoneNumber,
         address,
+        price: slotData.price,
       };
+      console.log(slotData.price);
 
       fetch("http://localhost:8000/booking", {
         method: "POST",
@@ -116,7 +118,7 @@ const Modal = ({
   return (
     <div>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-20" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -129,8 +131,8 @@ const Modal = ({
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
           <form onSubmit={handleBooking}>
-            <div className="fixed inset-0 overflow-y-auto">
-              <div className="flex m-16 md:m-0 md:min-h-full items-center justify-center p-4 text-center">
+            <div className="fixed inset-0 overflow-y-auto mt-10">
+              <div className="flex  md:m-0 p-7 md:min-h-full items-center justify-center text-center mt-10">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-out duration-300"
@@ -143,13 +145,13 @@ const Modal = ({
                   <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h3"
-                      className="text-lg font-medium leading-6 text-gray-900 uppercase"
+                      className="text-lg font-medium text-center text-gray-900 uppercase"
                     >
                       {slotData.name}
                     </Dialog.Title>
 
-                    <div className="mt-2 m-3 md:m-6 p-4">
-                      <p className="text-sm text-gray-500">
+                    <div className="  ">
+                      <p className="text-sm text-gray-500 m-3">
                         configure your appointment time at our available time
                       </p>
 
@@ -157,19 +159,24 @@ const Modal = ({
                         type="text"
                         className={`bg-black ${
                           date ? "text-white" : "text-red-500"
-                        } w-full text-center p-2  text-xl`}
+                        } w-full text-center p-2  text-xl rounded-full`}
                         disabled
                         value={date ? date : "Please choose a date"}
                       ></input>
-                      <select className="w-full  border py-2 mt-2" name="slot">
+                      <select
+                        className="w-full rounded-full border-green-300 shadow-md  border-2 outline-none py-2 px-2 mt-2"
+                        name="slot"
+                      >
                         {slotData.slots.map((slot) => {
                           return (
-                            <option
-                              className="text-center text-xl"
-                              value={slot}
-                            >
-                              {slot}
-                            </option>
+                            <React.Fragment key={slot}>
+                              <option
+                                className="text-center text-xl "
+                                value={slot}
+                              >
+                                {slot}
+                              </option>
+                            </React.Fragment>
                           );
                         })}
                       </select>
@@ -179,7 +186,7 @@ const Modal = ({
                         value={user?.displayName}
                         disabled
                         placeholder="Enter your name"
-                        className="w-full  border py-2 mt-2 pl-3"
+                        className="w-full rounded-full font-bold border-gray-400  border py-2 mt-2 pl-3"
                       />
                       <br />
                       <input
@@ -188,30 +195,30 @@ const Modal = ({
                         value={user?.email}
                         disabled
                         placeholder="Enter your email"
-                        className="w-full  border py-2 mt-2 pl-3"
+                        className="w-full rounded-full font-bold border-gray-400  border py-2 mt-2 pl-3"
                       />
                       <br />
                       <input
                         type="text"
                         name="phoneNumber"
                         placeholder="Enter your Phone Number"
-                        className="w-full  border py-2 mt-2 pl-3"
+                        className="w-full rounded-full border-gray-400  border py-2 mt-2 pl-3"
                       />
                       <br />
                       <input
                         type="text"
                         name="address"
                         placeholder="Enter your Address"
-                        className="w-full  border py-2 mt-2 pl-3"
+                        className="w-full rounded-full border-gray-400 border py-2 mt-2 pl-3"
                       />
                       <br />
                     </div>
 
-                    <div className="mt-4">
+                    <div className="mt-4 flex justify-center">
                       <button
                         type="submit"
                         value={"submit"}
-                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        className="inline-flex justify-center rounded-lg border border-transparent bg-green-400 px-4 py-2 text-sm font-medium text-white"
                         onClick={closeModal}
                       >
                         Book

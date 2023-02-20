@@ -12,10 +12,10 @@ export interface DateProps {
   selectedDate: Date | undefined;
 }
 export interface AppointmentsProps {
-  id: string;
+  _id: string;
   name: string;
   slots: string[];
-  price: string;
+  price: number;
   imgUrl: string;
 }
 
@@ -63,7 +63,7 @@ const AppointmentCards = ({ selectedDate }: DateProps) => {
           {apointmentsData.map((data) => {
             return (
               <div
-                key={data.id as React.Key}
+                key={data._id as React.Key}
                 className="border mx-12 shadow rounded"
               >
                 <AppointmentSlot

@@ -11,6 +11,8 @@ interface BookingProps {
   email: string;
   phoneNumber: string;
   address: string;
+  price: number;
+  paid: boolean;
 }
 
 const DashboardProtected = () => {
@@ -47,8 +49,9 @@ const DashboardProtected = () => {
             <tr>
               <th className="px-4 py-2"></th>
               <th className="px-4 py-2"> Name</th>
-              <th className="px-4 py-2">Job</th>
+              <th className="px-4 py-2">Service Name</th>
               <th className="px-4 py-2">Date and Time</th>
+              <th className="px-4 py-2">payment</th>
             </tr>
           </thead>
           <tbody>
@@ -62,6 +65,13 @@ const DashboardProtected = () => {
                     {booking.AppointmentDate}
                     <br />
                     {booking.AppointmentTime}
+                  </td>
+                  <td className="border px-4 py-2">
+                    {booking.price && !booking.paid && (
+                      <button className="bg-green-600 p-1 px-2 text-white rounded-md ">
+                        pay
+                      </button>
+                    )}
                   </td>
                 </tr>
               );

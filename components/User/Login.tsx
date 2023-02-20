@@ -74,10 +74,10 @@ const Login = () => {
     <div className="flex w-fit mx-auto shadow-2xl justify-center items-center rounded-2xl ">
       <div className="relative w-[400px] h-[500px] hidden md:block">
         <Image
-          src={"/home.jpg"}
+          src={"/hospital.jpg"}
           alt={"loginImg"}
           fill
-          className="grow border rounded-tl-xl rounded-bl-xl shadow-2xl shadow-pink-100"
+          className="grow border rounded-tl-xl rounded-bl-xl shadow-2xl shadow-gray-100"
         />
       </div>
 
