@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Contexts/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { MdHealthAndSafety } from "react-icons/md";
+import Link from "next/link";
 
-interface BookingProps {
+export interface BookingProps {
+  _id: string;
   ServiceFor: string;
   AppointmentDate: string;
   AppointmentTime: string;
@@ -68,9 +70,12 @@ const DashboardProtected = () => {
                   </td>
                   <td className="border px-4 py-2">
                     {booking.price && !booking.paid && (
-                      <button className="bg-green-600 p-1 px-2 text-white rounded-md ">
+                      <Link
+                        href={`dashboard/payment/${booking._id}`}
+                        className="bg-green-600 p-1 px-2 text-white rounded-md "
+                      >
                         pay
-                      </button>
+                      </Link>
                     )}
                   </td>
                 </tr>
