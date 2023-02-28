@@ -5,6 +5,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import AdminRoute from "../../components/PrivateRoute/AdminRoute";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
+import loader from "../../public/data/Heart-2.json";
 
 interface InputsProps {
   name: string;
@@ -43,7 +45,13 @@ const managedoctor = () => {
     },
   });
   if (isLoading) {
-    return <p>loading.....</p>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className=" w-[100px] h-[100px]">
+          <Lottie animationData={loader} loop={true} />
+        </div>
+      </div>
+    );
   }
   const onSubmit: SubmitHandler<InputsProps> = (data) => {
     const image = data.image[0];

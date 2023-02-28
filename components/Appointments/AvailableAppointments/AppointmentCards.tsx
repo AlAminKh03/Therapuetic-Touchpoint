@@ -7,6 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import AppointmentsMain from "../AppointmentsMain/AppointmentsMain";
 import { MdHealthAndSafety } from "react-icons/md";
 import appointment from "../../../pages/appointment";
+import Lottie from "lottie-react";
+import loader from "../../../public/data/Heart-2.json";
 
 export interface DateProps {
   selectedDate: Date | undefined;
@@ -39,9 +41,10 @@ const AppointmentCards = ({ selectedDate }: DateProps) => {
   });
   if (isLoading) {
     return (
-      <div className=" min-h-screen flex items-center justify-center felx-col">
-        <MdHealthAndSafety className="text-7xl text-green-500 animate-spin animation-durationLd" />
-        <p className="tracking-wider text-sm">Processing ....</p>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className=" w-[100px] h-[100px]">
+          <Lottie animationData={loader} loop={true} />
+        </div>
       </div>
     );
   }

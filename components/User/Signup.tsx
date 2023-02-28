@@ -69,6 +69,10 @@ const Signup = () => {
           .then((result) => {
             saveUser(data.name, data.email);
             setLoading(false);
+            Toast.fire({
+              icon: "error",
+              title: "Account created successfully",
+            });
           })
           .catch((err) => {
             console.log(err);

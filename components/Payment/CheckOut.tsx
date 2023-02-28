@@ -15,6 +15,7 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
   const stripe = useStripe();
   const elements = useElements();
 
+  const { _id, price, email, patient } = clientInformation;
   useEffect(() => {
     fetch("http://localhost:8000/create-payment-intent", {
       method: "POST",
@@ -22,7 +23,7 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-      body: JSON.stringify({ price: clientInformation.price }),
+      body: JSON.stringify({ price: price }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -61,8 +62,8 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: clientInformation.patient,
-            email: clientInformation.email,
+            name: patient,
+            email: email,
           },
         },
       });
@@ -71,8 +72,25 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
       return;
     }
     if (paymentIntent.status === "succeeded") {
-      setSuccess("Your payment is succeeded");
-      setTransitionId(paymentIntent.id);
+      const payment = {
+        price,
+        email,
+        bookingId: _id,
+        transitionId: paymentIntent.id,
+      };
+      fetch("http://localhost:8000/payment", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setSuccess("Your payment is succeeded");
+          setTransitionId(paymentIntent.id);
+        });
     }
     setProcessing(false);
   };
@@ -108,7 +126,9 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
       {success && (
         <div>
           <p className="text-green-500 text-center"> {success}</p>
-          <p className="text-center">Your transition id is {transitionId}</p>
+          <p className="text-center">
+            {`Your transition id is ${transitionId}`}
+          </p>
         </div>
       )}
       {paymentError && (

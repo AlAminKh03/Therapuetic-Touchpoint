@@ -4,15 +4,18 @@ import { CgMenuRight } from "react-icons/cg";
 import { AuthContext } from "./Contexts/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { MdHealthAndSafety } from "react-icons/md";
+import Lottie from "lottie-react";
+import loader from "../public/data/Heart-2.json";
 
 const Navbar = () => {
   const [openMenuNav, setOpenMenuNav] = useState<boolean>(false);
   const { user, signOutUser, loading, setLoading } = useContext(AuthContext);
   if (loading) {
     return (
-      <div className=" min-h-screen flex items-center justify-center felx-cols">
-        <MdHealthAndSafety className="text-7xl text-green-500 animate-spin animation-durationLd" />
-        <p className="tracking-wider text-sm">Processing.....</p>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className=" w-[100px] h-[100px]">
+          <Lottie animationData={loader} loop={true} />
+        </div>
       </div>
     );
   }
