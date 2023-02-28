@@ -53,7 +53,7 @@ const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   if (!isReady) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className=" w-[100px] h-[100px]">
+        <div className=" w-[200px] h-[200px]">
           <Lottie animationData={loader} loop={true} />
         </div>
       </div>

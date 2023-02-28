@@ -1,12 +1,7 @@
 import { format } from "date-fns";
 import React from "react";
-import { useState, useEffect } from "react";
 import AppointmentSlot from "./AppointmentSlot";
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import AppointmentsMain from "../AppointmentsMain/AppointmentsMain";
-import { MdHealthAndSafety } from "react-icons/md";
-import appointment from "../../../pages/appointment";
 import Lottie from "lottie-react";
 import loader from "../../../public/data/Heart-2.json";
 
@@ -42,7 +37,7 @@ const AppointmentCards = ({ selectedDate }: DateProps) => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className=" w-[100px] h-[100px]">
+        <div className=" w-[200px] h-[200px]">
           <Lottie animationData={loader} loop={true} />
         </div>
       </div>

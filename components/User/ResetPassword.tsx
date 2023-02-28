@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from "sweetalert2";
-import { MdHealthAndSafety } from "react-icons/md";
+import Lottie from "lottie-react";
+import loader from "../../public/data/Heart-2.json";
 
 type Props = {};
 const Toast = Swal.mixin({
@@ -16,9 +17,10 @@ const ResetPassword = (props: Props) => {
   const { loading, setLoading, resetPassword } = useContext(AuthContext);
   if (loading) {
     return (
-      <div className=" min-h-screen flex items-center justify-center felx-col">
-        <MdHealthAndSafety className="text-7xl text-green-500 animate-spin animation-durationLd" />
-        <p className="tracking-wider text-sm">Registering User ....</p>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className=" w-[200px] h-[200px]">
+          <Lottie animationData={loader} loop={true} />
+        </div>
       </div>
     );
   }
@@ -37,7 +39,7 @@ const ResetPassword = (props: Props) => {
           console.log(result);
           Toast.fire({
             icon: "success",
-            title: `Please Check Your Email ${result}`,
+            title: `Please Check Your Email`,
           });
           setLoading(false);
         })

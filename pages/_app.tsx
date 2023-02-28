@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import React, { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import { Inter } from "@next/font/google";
 import Navbar from "../components/Navbar";
@@ -10,18 +11,18 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
+import Lottie from "lottie-react";
+import loader from "../public/data/Heart-2.json";
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const isLoginPage = router.pathname === "/login";
-  const isSignUpPage = router.pathname === "/signup";
-  const isDashBoard = router.pathname === "/dashboard";
+  const [loading, setLoading] = useState(false);
   const queryClient = new QueryClient();
+  const router = useRouter();
 
   return (
     <main
@@ -30,8 +31,14 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <Navbar />
+          {loading && (
+            <div className="flex items-center justify-center min-h-screen">
+              <div className=" w-[200px] h-[200px]">
+                <Lottie animationData={loader} loop={true} />
+              </div>
+            </div>
+          )}
           <Component {...pageProps} />
-          {/* {!isLoginPage || !isSignUpPage || (!isDashBoard && <Footer />)} */}
           <Footer />
         </AuthProvider>
       </QueryClientProvider>

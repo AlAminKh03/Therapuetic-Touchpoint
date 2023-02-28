@@ -11,7 +11,7 @@ const dashboard = (props: Props) => {
   const router = useRouter();
   return (
     <PrivateRoute>
-      <div className="relative top-20">
+      <div className="relative top-20 min-h-screen">
         <NestedRoutingNav />
         <DashboardProtected />
       </div>

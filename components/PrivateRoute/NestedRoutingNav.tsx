@@ -24,7 +24,7 @@ const NestedRoutingNav = (props: Props) => {
         <Link
           href="/dashboard/managedoctor"
           className={`border border-black p-2 rounded-full hover:shadow-md active:bg-black active:text-white ${
-            router.pathname === "/dashboard/manageDoctor"
+            router.pathname === "/dashboard/managedoctor"
               ? "bg-black text-white"
               : ""
           }`}

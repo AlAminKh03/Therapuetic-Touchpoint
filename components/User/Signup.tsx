@@ -14,6 +14,8 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 import useToken from "../hooks/useToken";
 import Image from "next/image";
+import Lottie from "lottie-react";
+import loader from "../../public/data/Heart-2.json";
 
 interface InputsProps {
   name: string;
@@ -46,15 +48,6 @@ const Signup = () => {
   if (token) {
     router.push("/");
   }
-  // loading state
-  if (loading) {
-    return (
-      <div className=" min-h-screen flex items-center justify-center felx-col">
-        <MdHealthAndSafety className="text-7xl text-green-500 animate-spin animation-durationLd" />
-        <p className="tracking-wider text-sm">Registering User ....</p>
-      </div>
-    );
-  }
 
   // form submit
   const onSubmit: SubmitHandler<InputsProps> = (data) => {
@@ -70,8 +63,8 @@ const Signup = () => {
             saveUser(data.name, data.email);
             setLoading(false);
             Toast.fire({
-              icon: "error",
-              title: "Account created successfully",
+              icon: "success",
+              title: `$account created successfully`,
             });
           })
           .catch((err) => {
@@ -104,7 +97,16 @@ const Signup = () => {
         setCreatedUserEmail(email);
       });
   };
-
+  // loading state
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className=" w-[200px] h-[200px]">
+          <Lottie animationData={loader} loop={true} />
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <div className="flex w-fit mx-auto shadow-2xl justify-center items-center rounded-2xl">

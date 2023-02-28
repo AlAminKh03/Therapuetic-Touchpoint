@@ -2,26 +2,25 @@ import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { CgMenuRight } from "react-icons/cg";
 import { AuthContext } from "./Contexts/AuthProvider";
-import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import { MdHealthAndSafety } from "react-icons/md";
 import Lottie from "lottie-react";
 import loader from "../public/data/Heart-2.json";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [openMenuNav, setOpenMenuNav] = useState<boolean>(false);
   const { user, signOutUser, loading, setLoading } = useContext(AuthContext);
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className=" w-[100px] h-[100px]">
+      <div className=" min-h-screen flex items-center justify-center felx-cols">
+        <div className=" w-[200px] h-[200px]">
           <Lottie animationData={loader} loop={true} />
         </div>
       </div>
     );
   }
-
+  const router = useRouter();
   const handleSignOut = () => {
-    setLoading(false);
+    setLoading(true);
     signOutUser();
   };
   const menuItems = [
@@ -66,7 +65,11 @@ const Navbar = () => {
                         menuItem.content === "LOGIN"
                           ? "border border-green-500 rounded-full p-2"
                           : null
-                      } `}
+                      } ${
+                        router.pathname === menuItem.path
+                          ? "border-b border-gray-800 pb-2"
+                          : ""
+                      }`}
                     >
                       {menuItem.content}
                     </Link>
@@ -77,7 +80,7 @@ const Navbar = () => {
             {user?.uid ? (
               <button
                 onClick={handleSignOut}
-                className="text-xs hover:text-gray-400 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer border border-green-500 rounded-full p-2"
+                className="text-xs text-gray-600 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer border border-red-500  bg-red-500 rounded-full p-2"
               >
                 SIGN OUT{" "}
               </button>

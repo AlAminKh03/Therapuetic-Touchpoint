@@ -99,7 +99,7 @@ const managedoctor = () => {
           <NestedRoutingNav />
         </div>
         <div>
-          <div className="flex justify-center items-center min-h-[50vh]  ">
+          <div className="flex justify-center items-center min-h-[50vh] mt-5 ">
             <div className="relative top-20 mb-20">
               <form onSubmit={handleSubmit(onSubmit)} className=" z-[1]">
                 <div>

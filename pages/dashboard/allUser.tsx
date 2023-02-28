@@ -55,7 +55,7 @@ const dashboard3 = () => {
           <NestedRoutingNav />
 
           <div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto  mt-5">
               <table className="table w-full mx-auto my-5">
                 <thead className="bg-gray-400">
                   <tr>

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Contexts/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import { MdHealthAndSafety } from "react-icons/md";
 import Link from "next/link";
 import Lottie from "lottie-react";
 import loader from "../../public/data/Heart-2.json";
@@ -40,15 +39,22 @@ const DashboardProtected = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className=" w-[100px] h-[100px]">
+        <div className=" w-[200px] h-[200px]">
           <Lottie animationData={loader} loop={true} />
         </div>
       </div>
     );
   }
+  if (!bookings || bookings.length === 0) {
+    return (
+      <div className="text-center mt-10">
+        <p> You don't have any Appointments</p>
+      </div>
+    );
+  }
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-10">
         <table className="table w-full">
           <thead>
             <tr>
