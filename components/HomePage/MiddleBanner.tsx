@@ -35,7 +35,7 @@ const MiddleBanner = (props: Props) => {
     //   </div>
     // </div>
     // </div>
-    <div className="relative grid grid-cols-3 m-8">
+    <div className="relative grid grid-cols-1 md:grid-cols-3 m-8">
       <div className="flex flex-col items-center my-auto gap-8">
         {" "}
         <div className="max-w-38 shrink mx-auto flex flex-col items-center hover:text-gray-500 ease-in duration-300">
@@ -51,8 +51,8 @@ const MiddleBanner = (props: Props) => {
       <div className="flex flex-col justify-center items-center">
         <div className="justify center items-center">
           <p className="font-xl">
-            this is how{" "}
-            <span className="bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            This is how{" "}
+            <span className="bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
               therapuetic touchpoint
             </span>{" "}
             works
