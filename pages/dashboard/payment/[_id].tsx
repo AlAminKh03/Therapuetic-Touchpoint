@@ -27,7 +27,9 @@ const Id = () => {
   const router = useRouter();
   const { _id } = router.query;
   useEffect(() => {
-    fetch(`http://localhost:8000/booking/payment/${_id}`)
+    fetch(
+      `https://thearpuetic-touchpoint-server-ppfa.vercel.app/booking/payment/${_id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

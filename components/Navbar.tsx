@@ -80,7 +80,7 @@ const Navbar = () => {
             {user?.uid ? (
               <button
                 onClick={handleSignOut}
-                className="text-xs text-gray-600 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer border border-red-500  bg-red-500 rounded-full p-2"
+                className="text-xs text-gray-600 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer border border-red-900  bg-red-500 rounded-full p-2"
               >
                 SIGN OUT{" "}
               </button>

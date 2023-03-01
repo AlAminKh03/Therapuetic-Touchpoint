@@ -91,7 +91,7 @@ const Modal = ({
       };
       console.log(slotData.price);
 
-      fetch("http://localhost:8000/booking", {
+      fetch("https://thearpuetic-touchpoint-server-ppfa.vercel.app/booking", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

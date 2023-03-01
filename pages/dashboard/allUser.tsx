@@ -23,18 +23,23 @@ const dashboard3 = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const users = await fetch("http://localhost:8000/users");
+      const users = await fetch(
+        "https://thearpuetic-touchpoint-server-ppfa.vercel.app/users"
+      );
       const data = await users.json();
       return data;
     },
   });
   const handleRole = (id: string) => {
-    fetch(`http://localhost:8000/users/admin/${id}`, {
-      method: "PATCH",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://thearpuetic-touchpoint-server-ppfa.vercel.app/users/admin/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
     refetch();

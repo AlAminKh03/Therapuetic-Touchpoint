@@ -17,7 +17,9 @@ const AllDoctors = () => {
   const { data: doctors, isLoading } = useQuery({
     queryKey: ["doctors"],
     queryFn: async () => {
-      const doctors = await fetch("http://localhost:8000/doctors");
+      const doctors = await fetch(
+        "https://thearpuetic-touchpoint-server-ppfa.vercel.app/doctors"
+      );
       const data = await doctors.json();
       return data;
     },

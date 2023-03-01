@@ -39,7 +39,9 @@ const managedoctor = () => {
   const { data: appointmentsNames, isLoading } = useQuery({
     queryKey: ["names"],
     queryFn: async () => {
-      const names = await fetch("http://localhost:8000/appointmentsName");
+      const names = await fetch(
+        "https://thearpuetic-touchpoint-server-ppfa.vercel.app/appointmentsName"
+      );
       const data = await names.json();
       return data;
     },
@@ -73,14 +75,17 @@ const managedoctor = () => {
             imageUrl: imageData.data.display_url,
           };
           console.log(doctor);
-          fetch("http://localhost:8000/doctors", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(doctor),
-          })
+          fetch(
+            "https://thearpuetic-touchpoint-server-ppfa.vercel.app/doctors",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              body: JSON.stringify(doctor),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               console.log(data);

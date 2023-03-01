@@ -28,7 +28,7 @@ const AppointmentCards = ({ selectedDate }: DateProps) => {
 
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:8000/appointments?date=${date}`
+        `https://thearpuetic-touchpoint-server-ppfa.vercel.app/appointments?date=${date}`
       );
       const data = await res.json();
       return data;

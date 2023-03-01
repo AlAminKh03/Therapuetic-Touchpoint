@@ -25,7 +25,7 @@ const DashboardProtected = () => {
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const booking = await fetch(
-        `http://localhost:8000/booking?email=${user?.email}`,
+        `https://thearpuetic-touchpoint-server-ppfa.vercel.app/booking?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

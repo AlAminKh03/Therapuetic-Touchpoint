@@ -17,14 +17,17 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
 
   const { _id, price, email, patient } = clientInformation;
   useEffect(() => {
-    fetch("http://localhost:8000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ price: price }),
-    })
+    fetch(
+      "https://thearpuetic-touchpoint-server-ppfa.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ price: price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.clientSecret);
@@ -78,7 +81,7 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
         bookingId: _id,
         transitionId: paymentIntent.id,
       };
-      fetch("http://localhost:8000/payment", {
+      fetch("https://thearpuetic-touchpoint-server-ppfa.vercel.app/payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",

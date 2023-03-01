@@ -6,11 +6,11 @@ type Props = {};
 const about = (props: Props) => {
   return (
     <div className="relative top-14  bg-cyan-50 grid grid-cols-1">
-      <div className="flex justify-center items-center ">
+      <div className="flex justify-center items-center p-6">
         <Image src="/story.png" alt="story" width="300" height="300" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-10 pb-20 text-center ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-10 pb-20 text-center p-5 ">
         <div>
           <h3 className="uppercase font-bold pb-3">Our Journey</h3>
           <p className="text-xs ">
