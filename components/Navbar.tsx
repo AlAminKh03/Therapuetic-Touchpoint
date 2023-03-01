@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const [openMenuNav, setOpenMenuNav] = useState<boolean>(false);
   const { user, signOutUser, loading, setLoading } = useContext(AuthContext);
+  const router = useRouter();
   if (loading) {
     return (
       <div className=" min-h-screen flex items-center justify-center felx-cols">
@@ -18,7 +19,7 @@ const Navbar = () => {
       </div>
     );
   }
-  const router = useRouter();
+
   const handleSignOut = () => {
     setLoading(true);
     signOutUser();

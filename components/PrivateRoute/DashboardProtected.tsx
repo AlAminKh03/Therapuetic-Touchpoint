@@ -48,7 +48,7 @@ const DashboardProtected = () => {
   if (!bookings || bookings.length === 0) {
     return (
       <div className="text-center mt-10">
-        <p> You don't have any Appointments</p>
+        <p> You don&rsquo;t have any Appointments</p>
       </div>
     );
   }
@@ -68,29 +68,31 @@ const DashboardProtected = () => {
           <tbody>
             {bookings.map((booking: BookingProps, i: number) => {
               return (
-                <tr className="border">
-                  <th className="border px-4 py-2">{i + 1}</th>
-                  <td className="border px-4 py-2">{booking.patient}</td>
-                  <td className="border px-4 py-2">{booking.ServiceFor}</td>
-                  <td className="border px-4 py-2">
-                    {booking.AppointmentDate}
-                    <br />
-                    {booking.AppointmentTime}
-                  </td>
-                  <td className="border px-4 py-2">
-                    {booking.price && !booking.paid && (
-                      <Link
-                        href={`dashboard/payment/${booking._id}`}
-                        className="bg-green-600 p-1 px-2 text-white rounded-md "
-                      >
-                        pay
-                      </Link>
-                    )}
-                    {booking.price && booking.paid && (
-                      <p className="text-green-600">PAID</p>
-                    )}
-                  </td>
-                </tr>
+                <React.Fragment key={booking._id}>
+                  <tr className="border">
+                    <th className="border px-4 py-2">{i + 1}</th>
+                    <td className="border px-4 py-2">{booking.patient}</td>
+                    <td className="border px-4 py-2">{booking.ServiceFor}</td>
+                    <td className="border px-4 py-2">
+                      {booking.AppointmentDate}
+                      <br />
+                      {booking.AppointmentTime}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {booking.price && !booking.paid && (
+                        <Link
+                          href={`dashboard/payment/${booking._id}`}
+                          className="bg-green-600 p-1 px-2 text-white rounded-md "
+                        >
+                          pay
+                        </Link>
+                      )}
+                      {booking.price && booking.paid && (
+                        <p className="text-green-600">PAID</p>
+                      )}
+                    </td>
+                  </tr>
+                </React.Fragment>
               );
             })}
           </tbody>

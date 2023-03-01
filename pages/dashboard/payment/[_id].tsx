@@ -35,7 +35,7 @@ const Id = () => {
         console.log(data);
         setClientInformation(data);
       });
-  }, []);
+  }, [_id]);
 
   return (
     <div className=" relative top-28  pb-10">

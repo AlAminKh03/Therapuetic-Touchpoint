@@ -28,7 +28,7 @@ const Toast = Swal.mixin({
   timerProgressBar: true,
 });
 
-const managedoctor = () => {
+const Managedoctor = () => {
   const ImageHostKey = process.env.NEXT_PUBLIC_IMAGE_BB_KEY;
   const {
     register,
@@ -197,4 +197,4 @@ const managedoctor = () => {
   );
 };
 
-export default managedoctor;
+export default Managedoctor;

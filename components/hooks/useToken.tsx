@@ -4,7 +4,9 @@ const useToken = (email: string) => {
   const [token, setToken] = useState<string>("");
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:8000/jwt?email=${email}`)
+      fetch(
+        `https://thearpuetic-touchpoint-server-ppfa.vercel.app/jwt?email=${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.accessToken) {

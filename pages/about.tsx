@@ -29,13 +29,14 @@ const about = (props: Props) => {
             Our Commitment to Patient Care
           </h3>
           <p className="text-xs ">
-            Our Commitment to Patient Care section highlights our hospital's
-            unwavering dedication to providing exceptional patient-centered
-            care. We prioritize patients' well-being by putting them at the
-            center of everything we do. Our hospital provides a positive
-            healthcare experience with personalized care, safety, and quality.
-            We have accreditation and certification from renowned organizations,
-            and we continuously improve our patient care and safety practices.
+            Our Commitment to Patient Care section highlights our
+            hospital&rsquo;s unwavering dedication to providing exceptional
+            patient-centered care. We prioritize patients well-being by putting
+            them at the center of everything we do. Our hospital provides a
+            positive healthcare experience with personalized care, safety, and
+            quality. We have accreditation and certification from renowned
+            organizations, and we continuously improve our patient care and
+            safety practices.
           </p>
         </div>
         <div>
@@ -43,10 +44,10 @@ const about = (props: Props) => {
             Our Vision for the Future
           </h3>
           <p className="text-xs ">
-            Our Vision for the Future section outlines our hospital's
+            Our Vision for the Future section outlines our hospital&rsquo;s
             aspirations for continued growth and development in providing
             healthcare services. We aim to expand our reach to serve more
-            patients, communities, and areas. Our hospital's future plans
+            patients, communities, and areas. Our hospital&rsquo;s future plans
             include upgrading our facilities with state-of-the-art technology
             and advanced medical equipment. We aspire to develop new programs,
             services, and initiatives that cater to the needs of our patients

@@ -7,8 +7,7 @@ import NestedRoutingNav from "../../components/PrivateRoute/NestedRoutingNav";
 
 type Props = {};
 
-const dashboard = (props: Props) => {
-  const router = useRouter();
+const Dashboard = (props: Props) => {
   return (
     <PrivateRoute>
       <div className="relative top-20 min-h-screen">
@@ -19,4 +18,4 @@ const dashboard = (props: Props) => {
   );
 };
 
-export default dashboard;
+export default Dashboard;

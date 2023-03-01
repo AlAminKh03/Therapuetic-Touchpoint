@@ -15,7 +15,7 @@ interface UserProps {
   role: string;
 }
 
-const dashboard3 = () => {
+const AllUser = () => {
   const {
     data: users,
     isLoading,
@@ -109,4 +109,4 @@ const dashboard3 = () => {
     </PrivateRoute>
   );
 };
-export default dashboard3;
+export default AllUser;

@@ -33,7 +33,7 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
         console.log(data.clientSecret);
         setClientSecret(data.clientSecret);
       });
-  }, []);
+  }, [price]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
