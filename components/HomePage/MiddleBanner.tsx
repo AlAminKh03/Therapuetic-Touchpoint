@@ -48,7 +48,7 @@ const MiddleBanner = (props: Props) => {
           <p className="text-xs text-center">AVENUE-5,MIRPUR 11, DHAKA</p>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center m-5">
         <div className="justify center items-center">
           <p className="font-xl">
             This is how{" "}
