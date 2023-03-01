@@ -52,7 +52,7 @@ const MiddleBanner = (props: Props) => {
         <div className="justify center items-center">
           <p className="font-xl">
             This is how{" "}
-            <span className="bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
               therapuetic touchpoint
             </span>{" "}
             works
