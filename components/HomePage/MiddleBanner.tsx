@@ -46,11 +46,11 @@ const MiddleBanner = (props: Props) => {
           <p className="text-xs text-center">AVENUE-5,MIRPUR 11, DHAKA</p>
         </div>
       </div>
-      <div className="flex flex-col justify-center">
-        <div className="justify center">
+      <div className="flex flex-col justify-center items-center">
+        <div className="justify center items-center">
           <p>this is how therapuetic touchpoint works</p>
         </div>
-        <div className="jutify-center">
+        <div className="jutify-center  items-center">
           <Image
             src="/community.png"
             alt="community pic"
