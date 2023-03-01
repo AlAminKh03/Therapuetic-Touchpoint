@@ -4,6 +4,8 @@ import { CiLocationOn } from "react-icons/ci";
 import { CiPhone } from "react-icons/ci";
 import { CiMoneyCheck1 } from "react-icons/ci";
 import Image from "next/image";
+import Link from "next/link";
+import { BsArrowRight } from "react-icons/bs";
 
 type Props = {};
 
@@ -33,8 +35,8 @@ const MiddleBanner = (props: Props) => {
     //   </div>
     // </div>
     // </div>
-    <div className="relative grid grid-cols-3 ">
-      <div className="flex flex-col items-center my-auto">
+    <div className="relative grid grid-cols-3 m-8">
+      <div className="flex flex-col items-center my-auto gap-8">
         {" "}
         <div className="max-w-38 shrink mx-auto flex flex-col items-center hover:text-gray-500 ease-in duration-300">
           <RxClock className="text-3xl  " />
@@ -48,18 +50,30 @@ const MiddleBanner = (props: Props) => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <div className="justify center items-center">
-          <p>this is how therapuetic touchpoint works</p>
+          <p className="font-xl">
+            this is how{" "}
+            <span className="bg-black rounded-xl shadow-md text-white p-3">
+              therapuetic touchpoint
+            </span>{" "}
+            works
+          </p>
         </div>
         <div className="jutify-center  items-center">
           <Image
             src="/community.png"
             alt="community pic"
-            width={300}
-            height={300}
+            width={400}
+            height={400}
           ></Image>
         </div>
+        <Link
+          href="/appointment"
+          className="uppercase px-12  p-4 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+        >
+          Discover More <BsArrowRight className="textwhite" />
+        </Link>
       </div>
-      <div className="flex flex-col items-center my-auto">
+      <div className="flex flex-col items-center my-auto gap-8">
         <div className="max-w-38   mx-auto flex flex-col items-center hover:text-gray-500 ease-in duration-300">
           <CiPhone className="text-3xl  " />
           <p className="text-xs pt-3 text-center">
