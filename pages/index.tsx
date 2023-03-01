@@ -30,8 +30,9 @@ export default function Home() {
       <main>
         <TopBanner />
         <Service />
-        <MiddleBanner />
+
         <ServiceDetails />
+        <MiddleBanner />
         <Reviews />
       </main>
     </div>
