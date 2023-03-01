@@ -34,7 +34,7 @@ const MiddleBanner = (props: Props) => {
     // </div>
     // </div>
     <div className="relative grid grid-cols-3 ">
-      <div className="flex flex-col">
+      <div className="flex flex-col items-center">
         {" "}
         <div className="max-w-38 shrink mx-auto flex flex-col items-center hover:text-gray-500 ease-in duration-300">
           <RxClock className="text-3xl  " />
@@ -67,7 +67,7 @@ const MiddleBanner = (props: Props) => {
             (toll free) 24/7{" "}
           </p>
         </div>
-        <div className="max-w-38 shrink mx-auto hidden md:block  hover:text-gray-100 ease-in duration-500">
+        <div className="max-w-38 shrink mx-auto block  hover:text-gray-500 ease-in duration-500">
           <div className="flex flex-col items-center">
             <CiMoneyCheck1 className="text-3xl  " />
             <p className="text-xs py-3">Payment & Refund</p>
