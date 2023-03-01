@@ -34,7 +34,7 @@ const MiddleBanner = (props: Props) => {
     // </div>
     // </div>
     <div className="relative grid grid-cols-3 ">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center ">
         {" "}
         <div className="max-w-38 shrink mx-auto flex flex-col items-center hover:text-gray-500 ease-in duration-300">
           <RxClock className="text-3xl  " />
