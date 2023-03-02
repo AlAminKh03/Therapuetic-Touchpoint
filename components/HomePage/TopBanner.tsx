@@ -21,13 +21,13 @@ const TopBanner = (props: Props) => {
     <div className="flex relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
       <div>
         <Image
-          src="/tott-2.png"
+          src="/tott-3.png"
           alt="Hero Image"
           width={500}
           height={600}
         ></Image>
       </div>
-      <div className=" flex flex-col custom-img bg-cover justify-center items-center ">
+      <div className=" flex flex-col custom-img bg-cover justify-center items-center p-5 ">
         <h1 className="font-extrabold text-5xl ">
           Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
@@ -43,7 +43,7 @@ const TopBanner = (props: Props) => {
       </div>
       <div>
         <Image
-          src="/tott-2.png"
+          src="/tott.png"
           alt="Hero Image"
           width={500}
           height={600}
