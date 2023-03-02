@@ -19,9 +19,9 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className="flex relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div>
+      <div className="flex items-end">
         <Image
-          src="/tott-3.png"
+          src="/tott-4.png"
           alt="Hero Image"
           width={500}
           height={600}
@@ -42,7 +42,7 @@ const TopBanner = (props: Props) => {
           physical, mental, and emotional well-being.
         </h3>
       </div>
-      <div>
+      <div className="flex items-end">
         <Image
           src="/tott.png"
           alt="Hero Image"
