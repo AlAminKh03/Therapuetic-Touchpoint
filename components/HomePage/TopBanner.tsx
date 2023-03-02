@@ -18,7 +18,16 @@ const TopBanner = (props: Props) => {
     //         <Link href="/appointment" className='px-8 py-4  bg-white text-black hover:bg-black hover:text-white hover:translate-x-1 transition-all ease-in duration-300'>Book your appointment </Link>
     //     </div>
     // </div>
-    <div className="grid grid-cols-2 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
+    <div className="relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
+      <div className="flex justify-start">
+        <Image
+          src="/appointment-2.png"
+          alt="Hero Image"
+          width={500}
+          height={600}
+          className="flex items-end mt-20"
+        ></Image>
+      </div>
       <div className=" flex flex-col  justify-center items-center p-5 ">
         <h1 className="font-extrabold text-5xl custom-img bg-cover w-[200px] h-[200px]">
           Experience the{" "}
@@ -33,7 +42,7 @@ const TopBanner = (props: Props) => {
           physical, mental, and emotional well-being.
         </h3>
       </div>
-      <div className="flex">
+      <div className="flex justify-end">
         <Image
           src="/appointment-2.png"
           alt="Hero Image"
