@@ -28,7 +28,7 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className=" absolute bottom-16 right-12 -z-10">
+        <div className=" absolute bottom-28 left-12 -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
