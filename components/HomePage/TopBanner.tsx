@@ -18,7 +18,7 @@ const TopBanner = (props: Props) => {
     //         <Link href="/appointment" className='px-8 py-4  bg-white text-black hover:bg-black hover:text-white hover:translate-x-1 transition-all ease-in duration-300'>Book your appointment </Link>
     //     </div>
     // </div>
-    <div className=" grid grid-cols-2 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
+    <div className=" grid grid-cols-1 md:grid-cols-2 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
       <div className=" flex flex-col  justify-center items-center pl-10 ">
         <div className="">
           <Image
@@ -28,7 +28,7 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className=" absolute top-16 -z-10">
+        <div className=" absolute bottom-16 right-12 -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
