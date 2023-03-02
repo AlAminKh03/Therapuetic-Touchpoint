@@ -18,7 +18,7 @@ const TopBanner = (props: Props) => {
     //         <Link href="/appointment" className='px-8 py-4  bg-white text-black hover:bg-black hover:text-white hover:translate-x-1 transition-all ease-in duration-300'>Book your appointment </Link>
     //     </div>
     // </div>
-    <div className="relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
+    <div className=" flex relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
       <div className="flex justify-start">
         <Image
           src="/appointment-2.png"
@@ -31,7 +31,7 @@ const TopBanner = (props: Props) => {
       <div className=" flex flex-col  justify-center items-center p-5 ">
         <h1 className="font-extrabold text-5xl custom-img bg-cover w-[200px] h-[200px]">
           Experience the{" "}
-          <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
+          <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600  font-bold">
             Healing
           </span>{" "}
           <br />
