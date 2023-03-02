@@ -64,7 +64,7 @@ const Navbar = () => {
                       href={`${menuItem.path}`}
                       className={`text-xs hover:text-gray-400 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer ${
                         menuItem.content === "LOGIN"
-                          ? "border border-green-500 rounded-full p-2"
+                          ? "border bg-black text-white p-2"
                           : null
                       } ${
                         router.pathname === menuItem.path
@@ -81,7 +81,7 @@ const Navbar = () => {
             {user?.uid ? (
               <button
                 onClick={handleSignOut}
-                className="text-xs text-gray-600 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer border border-red-900  bg-red-500 rounded-full p-2"
+                className="text-xs text-gray-600 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer border border-red-700  bg-red-500 p-2"
               >
                 SIGN OUT{" "}
               </button>

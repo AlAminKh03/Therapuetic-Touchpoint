@@ -84,7 +84,7 @@ const Signup = () => {
       name,
       email,
     };
-    fetch("http://localhost:8000/user", {
+    fetch("https://thearpuetic-touchpoint-server-ppfa.vercel.app/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",

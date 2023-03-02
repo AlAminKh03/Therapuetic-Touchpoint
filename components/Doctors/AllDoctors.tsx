@@ -36,11 +36,11 @@ const AllDoctors = () => {
   }
   return (
     <div>
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center">
         <div className=" w-[300px] h-[300px]">
           <Lottie animationData={hero} loop={true} />
           <br />
-          <p>
+          <p className="text-center">
             Meet your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
               Heroes

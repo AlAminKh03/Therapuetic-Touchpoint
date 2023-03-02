@@ -14,6 +14,7 @@ interface InputsProps {
   appointmentsName: string;
   image: string;
   bloodGroup: string;
+  description: string;
 }
 
 interface appointmentsNameProps {
@@ -167,12 +168,30 @@ const Managedoctor = () => {
                     type="file"
                     {...register("image", { required: true })}
                     className={`border p-2 outline-none ${
-                      errors.email
+                      errors.image
                         ? "focus:border-red-500"
                         : "focus:border-green-500"
                     }`}
                   />
-                  {errors.email?.type === "required" && (
+                  {errors.image?.type === "required" && (
+                    <p className="text-red-600 text-center text-xs font-light">
+                      {" "}
+                      Please fillup the Image field
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label>Description: </label>
+                  <br />
+                  <textarea
+                    {...register("description", { required: true })}
+                    className={`border p-2 outline-none ${
+                      errors.description
+                        ? "focus:border-red-500"
+                        : "focus:border-green-500"
+                    }`}
+                  />
+                  {errors.description?.type === "required" && (
                     <p className="text-red-600 text-center text-xs font-light">
                       {" "}
                       Please fillup the email Input
