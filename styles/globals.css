@@ -23,6 +23,7 @@ a {
   background-image: url("/bandaid.png");
   width: 400px;
   height: 200px;
+  background-color: rgba(235, 235, 235, 0.4);
 }
 .animation-durationfr {
   animation-duration: 20000ms !important;
