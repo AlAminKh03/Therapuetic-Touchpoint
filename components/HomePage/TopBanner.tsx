@@ -28,7 +28,7 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className=" absolute bottom-[9rem] left-[24rem] -z-10">
+        <div className=" absolute bottom-[9rem] left-[20rem] -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
@@ -37,7 +37,7 @@ const TopBanner = (props: Props) => {
             className="w-[200px] h-[150px] transform rotate-45"
           ></Image>
         </div>
-        <h1 className="font-thin text-3xl ">
+        <h1 className="font-extrabold text-3xl ">
           Don&rsquo;t be like that, Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
             Healing
@@ -50,7 +50,7 @@ const TopBanner = (props: Props) => {
           physical, mental, and emotional well-being.
         </h3>
       </div>
-      <div className="flex justify-end">
+      <div className="md:flex justify-end hidden">
         <Image
           src="/appointment-3.png"
           alt="Hero Image"
