@@ -19,7 +19,7 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className=" grid grid-cols-1 md:grid-cols-2 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div className=" flex flex-col  justify-center items-center pl-10 ">
+      <div className=" flex flex-col sm:pt-10 md:pt-0 justify-center items-center pl-10 ">
         <div className="">
           <Image
             src="/tott-4.png"
@@ -42,7 +42,6 @@ const TopBanner = (props: Props) => {
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
             Healing
           </span>{" "}
-          <br />
           Power of Therapeutic Touchpoint
         </h1>
         <h3 className="text-md tracking-wide">
