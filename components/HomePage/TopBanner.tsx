@@ -19,15 +19,6 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className=" flex relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div className="flex justify-start">
-        <Image
-          src="/appointment-2.png"
-          alt="Hero Image"
-          width={500}
-          height={600}
-          className="flex items-end mt-20"
-        ></Image>
-      </div>
       <div className=" flex flex-col  justify-center items-center p-5 ">
         <h1 className="font-extrabold text-5xl custom-img bg-cover w-[200px] h-[200px]">
           Experience the{" "}
@@ -44,9 +35,9 @@ const TopBanner = (props: Props) => {
       </div>
       <div className="flex justify-end">
         <Image
-          src="/appointment-2.png"
+          src="/appointment-3.png"
           alt="Hero Image"
-          width={500}
+          width={600}
           height={600}
           className="flex items-end mt-20"
         ></Image>
