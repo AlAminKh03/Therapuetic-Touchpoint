@@ -19,10 +19,18 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className="flex relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div className=" bg-cover flex flex-col justify-center items-center ">
+      <div>
+        <Image
+          src="/tott-2.png"
+          alt="Hero Image"
+          width={500}
+          height={600}
+        ></Image>
+      </div>
+      <div className=" flex flex-col justify-center items-center ">
         <h1 className="font-extrabold text-5xl ">
           Experience the{" "}
-          <span className="text-transparent custom-img bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
+          <span className="text-transparent custom-img bg-cover  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
             Healing
           </span>{" "}
           <br />
@@ -41,7 +49,6 @@ const TopBanner = (props: Props) => {
           height={600}
         ></Image>
       </div>
-      <div></div>
     </div>
   );
 };
