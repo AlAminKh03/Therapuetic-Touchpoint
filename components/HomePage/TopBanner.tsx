@@ -20,7 +20,7 @@ const TopBanner = (props: Props) => {
     // </div>
     <div className=" flex relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
       <div className=" flex flex-col  justify-center items-center p-5 ">
-        <div className=" absolute custom-img bg-cover w-[200px] h-[200px]"></div>
+        <div className=" absolute custom-img bg-cover w-[200px] h-[200px] -z-10"></div>
         <h1 className="font-extrabold text-5xl ">
           Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600  font-bold">
@@ -29,7 +29,7 @@ const TopBanner = (props: Props) => {
           <br />
           Power of Therapeutic Touchpoint
         </h1>
-        <h3 className="text-xs">
+        <h3 className="text-md">
           We&rsquo;re a health organization dedicated to improving your
           physical, mental, and emotional well-being.
         </h3>
