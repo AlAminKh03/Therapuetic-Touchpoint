@@ -20,7 +20,7 @@ const TopBanner = (props: Props) => {
     // </div>
     <div className="flex relative items-center justify-center max-w-screen h-screen mb-5 bg-fixed ">
       <div className="">
-        <h1 className="font-extrabold text-2xl bg-[/bandaid.png] bg-cover">
+        <h1 className="font-extrabold text-5xl bg-[/bandaid.png] bg-cover">
           Experience the{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
             Healing
@@ -37,7 +37,7 @@ const TopBanner = (props: Props) => {
         <Image
           src="/tott.png"
           alt="Hero Image"
-          width={400}
+          width={600}
           height={600}
         ></Image>
       </div>
