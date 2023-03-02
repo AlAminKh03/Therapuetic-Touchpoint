@@ -19,7 +19,7 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className="grid grid-cols-3 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div className="absolute bottom-0 right-10">
+      <div className="relative bottom-0 left-10">
         <Image
           src="/tott-4.png"
           alt="Hero Image"
@@ -27,7 +27,7 @@ const TopBanner = (props: Props) => {
           height={600}
         ></Image>
       </div>
-      <div className=" flex flex-col  justify-center items-center p-5 ">
+      <div className=" absolute mx-auto top-10 p-5 ">
         <div className="custom-img bg-cover"></div>
         <h1 className="font-extrabold text-5xl ">
           Experience the{" "}
@@ -42,7 +42,7 @@ const TopBanner = (props: Props) => {
           physical, mental, and emotional well-being.
         </h3>
       </div>
-      <div className="absolute bottom-0 left-10">
+      <div className="relative bottom-0 right-10">
         <Image
           src="/tott.png"
           alt="Hero Image"
