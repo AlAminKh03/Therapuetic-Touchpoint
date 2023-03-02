@@ -25,11 +25,11 @@ const TopBanner = (props: Props) => {
           alt="Hero Image"
           width={500}
           height={600}
-          className=" items-end"
+          className=" items-end mt-20"
         ></Image>
       </div>
       <div className=" flex flex-col  justify-center items-center p-5 ">
-        <div className="custom-img bg-cover"></div>
+        <div className="custom-img bg-cover w-[200px] h-[200px]"></div>
         <h1 className="font-extrabold text-5xl ">
           Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 uppercase  font-bold">
