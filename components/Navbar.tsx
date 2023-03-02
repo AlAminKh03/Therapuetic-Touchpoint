@@ -64,7 +64,7 @@ const Navbar = () => {
                       href={`${menuItem.path}`}
                       className={`text-xs hover:text-gray-400 hover:transition-all ease-in duration-100 tracking-widest cursor-pointer ${
                         menuItem.content === "LOGIN"
-                          ? "border bg-black rounded-md text-white p-2 hover:bg-gray-200"
+                          ? "border bg-black rounded-md text-white p-2 hover:bg-gray-200 hover:text-black"
                           : null
                       } ${
                         router.pathname === menuItem.path
