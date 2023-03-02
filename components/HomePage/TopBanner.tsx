@@ -38,7 +38,7 @@ const TopBanner = (props: Props) => {
           ></Image>
         </div>
         <h1 className="font-thin text-3xl ">
-          Don't be like that, Experience the{" "}
+          Don&rsquo;t be like that, Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
             Healing
           </span>{" "}
