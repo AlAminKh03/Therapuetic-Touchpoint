@@ -19,7 +19,7 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className="grid grid-cols-3 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div className="absolute bottom-0">
+      <div className="absolute bottom-0 right-10">
         <Image
           src="/tott-4.png"
           alt="Hero Image"
@@ -42,7 +42,7 @@ const TopBanner = (props: Props) => {
           physical, mental, and emotional well-being.
         </h3>
       </div>
-      <div className="absolute bottom-0">
+      <div className="absolute bottom-0 left-10">
         <Image
           src="/tott.png"
           alt="Hero Image"
