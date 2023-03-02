@@ -29,8 +29,8 @@ const TopBanner = (props: Props) => {
           Power of Therapeutic Touchpoint
         </h1>
         <h3>
-          We're a health organization dedicated to improving your physical,
-          mental, and emotional well-being.
+          We&rsquo;re a health organization dedicated to improving your
+          physical, mental, and emotional well-being.
         </h3>
       </div>
       <div>
