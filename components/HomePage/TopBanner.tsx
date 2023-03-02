@@ -28,13 +28,13 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className=" absolute -z-10">
+        <div className=" absolute top-16 -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
             width={200}
             height={200}
-            className="w-[150px] h-[150px]"
+            className="w-[200px] h-[150px] transform rotate-45"
           ></Image>
         </div>
         <h1 className="font-extrabold text-5xl ">
