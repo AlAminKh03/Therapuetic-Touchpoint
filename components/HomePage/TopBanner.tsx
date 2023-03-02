@@ -20,7 +20,8 @@ const TopBanner = (props: Props) => {
     // </div>
     <div className=" flex relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
       <div className=" flex flex-col  justify-center items-center p-5 ">
-        <h1 className="font-extrabold text-5xl custom-img bg-cover w-[200px] h-[200px]">
+        <div className=" absolute custom-img bg-cover w-[200px] h-[200px]"></div>
+        <h1 className="font-extrabold text-5xl ">
           Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600  font-bold">
             Healing
