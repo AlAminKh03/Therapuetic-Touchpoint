@@ -18,7 +18,7 @@ const TopBanner = (props: Props) => {
     //         <Link href="/appointment" className='px-8 py-4  bg-white text-black hover:bg-black hover:text-white hover:translate-x-1 transition-all ease-in duration-300'>Book your appointment </Link>
     //     </div>
     // </div>
-    <div className="flex relative items-center justify-center max-w-screen h-screen mb-5 bg-fixed ">
+    <div className="flex relative items-center justify-evenly max-w-screen h-screen mb-5 bg-fixed ">
       <div className="">
         <h1 className="font-extrabold text-5xl bg-[/bandaid.png] bg-cover">
           Experience the{" "}
@@ -37,7 +37,7 @@ const TopBanner = (props: Props) => {
         <Image
           src="/tott.png"
           alt="Hero Image"
-          width={600}
+          width={500}
           height={600}
         ></Image>
       </div>
