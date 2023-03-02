@@ -37,15 +37,15 @@ const TopBanner = (props: Props) => {
             className="w-[200px] h-[150px] transform rotate-45"
           ></Image>
         </div>
-        <h1 className="font-extrabold text-5xl ">
+        <h1 className="font-thin text-3xl ">
           Don't be like that, Experience the{" "}
-          <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold">
+          <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
             Healing
           </span>{" "}
           <br />
           Power of Therapeutic Touchpoint
         </h1>
-        <h3 className="text-md">
+        <h3 className="text-md tracking-wide">
           We&rsquo;re a health organization dedicated to improving your
           physical, mental, and emotional well-being.
         </h3>
