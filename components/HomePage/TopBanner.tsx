@@ -52,10 +52,10 @@ const TopBanner = (props: Props) => {
             physical, mental, and emotional well-being.
           </h3>
         </div>
-        <div className="flex justify-start ml-4">
+        <div className="flex justify-start ml-6">
           <Link
             href="/appointment"
-            className="uppercase rounded-xl  px-6 py-2 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+            className="uppercase rounded-xl  px-6 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
           >
             Join Now <BsArrowRight className="textwhite" />
           </Link>
