@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import hero from "../public/sofa.jpg";
+import { BsArrowRight } from "react-icons/bs";
 
 type Props = {};
 
@@ -28,7 +29,7 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className="hidden lg:block absolute bottom-[8rem] left-[6rem]  -z-10">
+        <div className="hidden lg:block absolute bottom-[8.5rem] left-[6rem]  -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
@@ -48,6 +49,14 @@ const TopBanner = (props: Props) => {
           We&rsquo;re a health organization dedicated to improving your
           physical, mental, and emotional well-being.
         </h3>
+        <div className="flex justify-center py-4 ">
+          <Link
+            href="/appointment"
+            className="uppercase px-12  p-4 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+          >
+            Join Now <BsArrowRight className="textwhite" />
+          </Link>
+        </div>
       </div>
       <div className="md:flex justify-end hidden">
         <Image
