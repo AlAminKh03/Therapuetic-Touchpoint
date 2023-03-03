@@ -52,7 +52,7 @@ const Navbar = () => {
 
   return (
     <div className="relative bg-green-300">
-      <div className=" hidden md:block fixed m-0 bg-white min-w-full py-5 px-5 z-40">
+      <div className=" hidden md:block fixed m-0 bg-green-300 min-w-full py-5 px-5 z-40">
         <div className="grid grid-cols-2 ">
           <p className="tracking-widest">THERAPEUTIC TOUCHPOINT</p>
           <div className="flex justify-around">
