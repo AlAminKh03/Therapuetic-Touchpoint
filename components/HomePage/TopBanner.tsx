@@ -56,7 +56,7 @@ const TopBanner = (props: Props) => {
           <div>
             <Link
               href="/appointment"
-              className="uppercase rounded-xl py-4 px-2 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+              className="uppercase rounded-xl py-2 px-2 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
             >
               Join Now <BsArrowRight className="textwhite" />
             </Link>
