@@ -37,7 +37,7 @@ const TopBanner = (props: Props) => {
               alt="Hero Image"
               width={120}
               height={120}
-              className=" transform rotate-[90deg]"
+              className=" transform -rotate-[90deg]"
             ></Image>
           </div>
           <h1 className="font-extrabold text-3xl tracking-wide ">
