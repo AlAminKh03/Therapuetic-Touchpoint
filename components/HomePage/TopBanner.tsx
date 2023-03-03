@@ -28,17 +28,17 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className="hidden lg:block absolute bottom-[6rem] left-[5rem]  -z-10">
+        <div className="hidden lg:block absolute bottom-[9rem] left-[5rem]  -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
-            width={100}
-            height={100}
+            width={70}
+            height={70}
             className=" transform rotate-45"
           ></Image>
         </div>
         <h1 className="font-extrabold text-3xl tracking-wide ">
-          Don&rsquo;t just fall be seated and Experience the{" "}
+          Don&rsquo;t just fall, be seated and Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
             Healing
           </span>{" "}
