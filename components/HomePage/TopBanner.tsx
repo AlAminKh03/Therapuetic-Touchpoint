@@ -20,39 +20,41 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className=" grid grid-cols-1 md:grid-cols-2 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div className=" flex flex-col sm:pt-10 md:pt-3 justify-center items-center pl-10 ">
-        <div className="">
-          <Image
-            src="/tott-4.png"
-            alt="Hero Image"
-            width={300}
-            height={300}
-          ></Image>
+      <div>
+        <div className=" flex flex-col sm:pt-10 md:pt-3 justify-center items-center pl-10 ">
+          <div className="">
+            <Image
+              src="/tott-4.png"
+              alt="Hero Image"
+              width={300}
+              height={300}
+            ></Image>
+          </div>
+          <div className="hidden lg:block absolute bottom-[11rem] left-[6rem]  -z-10">
+            <Image
+              src="/bandaid.png"
+              alt="Hero Image"
+              width={120}
+              height={120}
+              className=" transform rotate-45"
+            ></Image>
+          </div>
+          <h1 className="font-extrabold text-3xl tracking-wide ">
+            Don&rsquo;t just fall, be seated and Experience the{" "}
+            <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
+              Healing
+            </span>{" "}
+            Power of Therapeutic Touchpoint
+          </h1>
+          <h3 className="text-md tracking-wide">
+            We&rsquo;re a health organization dedicated to improving your
+            physical, mental, and emotional well-being.
+          </h3>
         </div>
-        <div className="hidden lg:block absolute bottom-[11rem] left-[6rem]  -z-10">
-          <Image
-            src="/bandaid.png"
-            alt="Hero Image"
-            width={120}
-            height={120}
-            className=" transform rotate-45"
-          ></Image>
-        </div>
-        <h1 className="font-extrabold text-3xl tracking-wide ">
-          Don&rsquo;t just fall, be seated and Experience the{" "}
-          <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
-            Healing
-          </span>{" "}
-          Power of Therapeutic Touchpoint
-        </h1>
-        <h3 className="text-md tracking-wide">
-          We&rsquo;re a health organization dedicated to improving your
-          physical, mental, and emotional well-being.
-        </h3>
         <div className="flex justify-start py-4 ">
           <Link
             href="/appointment"
-            className="uppercase custom-img bg-cover rounded-xl  px-6 py-2 items-center border text-white  mt-2 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+            className="uppercase custom-img bg-cover rounded-xl  px-6 py-2 items-center border text-black  mt-2 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
           >
             Join Now <BsArrowRight className="textwhite" />
           </Link>
