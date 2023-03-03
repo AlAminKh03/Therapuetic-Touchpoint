@@ -31,7 +31,7 @@ const TopBanner = (props: Props) => {
               height={300}
             ></Image>
           </div>
-          <div className="hidden lg:block absolute bottom-[10rem] left-[6rem]  -z-10">
+          <div className="hidden lg:block absolute bottom-[12rem] left-[6rem]  -z-10">
             <Image
               src="/bandaid.png"
               alt="Hero Image"
