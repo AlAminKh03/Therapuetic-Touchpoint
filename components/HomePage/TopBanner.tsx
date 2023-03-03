@@ -37,7 +37,7 @@ const TopBanner = (props: Props) => {
               alt="Hero Image"
               width={120}
               height={120}
-              className=" transform rotate-[60deg]"
+              className=" transform rotate-[90deg]"
             ></Image>
           </div>
           <h1 className="font-extrabold text-3xl tracking-wide ">
@@ -53,12 +53,14 @@ const TopBanner = (props: Props) => {
           </h3>
         </div>
         <div className="flex justify-start ml-6">
-          <Link
-            href="/appointment"
-            className="uppercase rounded-xl  px-6 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
-          >
-            Join Now <BsArrowRight className="textwhite" />
-          </Link>
+          <div>
+            <Link
+              href="/appointment"
+              className="uppercase rounded-xl  px-6 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+            >
+              Join Now <BsArrowRight className="textwhite" />
+            </Link>
+          </div>
           <div className=" ml-2 py-4">
             <Link
               href="https://github.com/AlAminKh03/Therapuetic-Touchpoint"
