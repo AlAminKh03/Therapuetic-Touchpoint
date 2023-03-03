@@ -59,7 +59,7 @@ const TopBanner = (props: Props) => {
           >
             Join Now <BsArrowRight className="textwhite" />
           </Link>
-          <div className=" ml-2">
+          <div className=" ml-2 py-4">
             <Link
               href="https://github.com/AlAminKh03/Therapuetic-Touchpoint"
               target="_blank"
