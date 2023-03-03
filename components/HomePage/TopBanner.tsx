@@ -37,7 +37,7 @@ const TopBanner = (props: Props) => {
               alt="Hero Image"
               width={120}
               height={120}
-              className=" transform -rotate-[180deg]"
+              className=" transform -rotate-[360deg]"
             ></Image>
           </div>
           <h1 className="font-extrabold text-3xl tracking-wide ">
@@ -52,7 +52,7 @@ const TopBanner = (props: Props) => {
             physical, mental, and emotional well-being.
           </h3>
         </div>
-        <div className="flex justify-start ml-8">
+        <div className="flex justify-start ml-10">
           <div>
             <Link
               href="/appointment"
