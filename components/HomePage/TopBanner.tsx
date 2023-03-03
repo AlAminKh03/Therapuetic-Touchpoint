@@ -60,7 +60,7 @@ const TopBanner = (props: Props) => {
       </div>
       <div className="md:flex justify-end hidden">
         <Image
-          src="/appointment-3.png"
+          src="/bandaid.png"
           alt="Hero Image"
           width={600}
           height={600}
