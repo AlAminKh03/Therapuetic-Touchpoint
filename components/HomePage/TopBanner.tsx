@@ -20,7 +20,7 @@ const TopBanner = (props: Props) => {
     //     </div>
     // </div>
     <div className=" grid grid-cols-1 md:grid-cols-2 relative items-center justify-around max-w-screen h-screen mb-5 bg-fixed ">
-      <div className=" flex flex-col sm:pt-10 md:pt-0 justify-center items-center pl-10 ">
+      <div className=" flex flex-col sm:pt-10 md:pt-3 justify-center items-center pl-10 ">
         <div className="">
           <Image
             src="/tott-4.png"
@@ -49,10 +49,10 @@ const TopBanner = (props: Props) => {
           We&rsquo;re a health organization dedicated to improving your
           physical, mental, and emotional well-being.
         </h3>
-        <div className="flex justify-center py-4 ">
+        <div className="flex py-4 ">
           <Link
             href="/appointment"
-            className="uppercase px-12  p-4 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+            className="uppercase rounded-xl  px-6 py-2 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
           >
             Join Now <BsArrowRight className="textwhite" />
           </Link>
