@@ -59,12 +59,13 @@ const TopBanner = (props: Props) => {
           >
             Join Now <BsArrowRight className="textwhite" />
           </Link>
-          <div className="border bg-gray-400 p-3">
+          <div className="border bg-transparent p-3 flex items-center">
             <Link
               href="https://github.com/AlAminKh03/Therapuetic-Touchpoint"
               target="_blank"
             >
-              Source Code{" "}
+              {" "}
+              source code
               <FaGithub className="text-center text-xl hover:text-blue-600 cursor-pointer" />
             </Link>
           </div>
