@@ -30,7 +30,7 @@ const TopBanner = (props: Props) => {
               height={300}
             ></Image>
           </div>
-          <div className="hidden lg:block absolute bottom-[11rem] left-[6rem]  -z-10">
+          <div className="hidden lg:block absolute bottom-[10rem] left-[6rem]  -z-10">
             <Image
               src="/bandaid.png"
               alt="Hero Image"
@@ -51,10 +51,10 @@ const TopBanner = (props: Props) => {
             physical, mental, and emotional well-being.
           </h3>
         </div>
-        <div className="flex justify-start py-4 custom-img bg-cover">
+        <div className="flex justify-start py-4 ">
           <Link
             href="/appointment"
-            className="uppercase  rounded-xl  px-6 py-2 items-center border text-black  mt-2 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
+            className="uppercase rounded-xl  px-6 py-2 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
           >
             Join Now <BsArrowRight className="textwhite" />
           </Link>
