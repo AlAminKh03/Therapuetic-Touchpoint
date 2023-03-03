@@ -35,6 +35,7 @@ const AppointmentBanner = ({ selectedDate, setSelectedDate }: DateProps) => {
                 setSelectedDate(day as Date)
               }
               disabled={disabledDays}
+              className="bg-transparent text-black"
             />
             {selectedDate ? (
               <p className="text-sm pl-2">
