@@ -28,7 +28,7 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className=" absolute bottom-[7rem] left-[20rem] -z-10">
+        <div className=" absolute bottom-[7rem] left-[8rem] md:left-[20rem] -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
@@ -38,7 +38,7 @@ const TopBanner = (props: Props) => {
           ></Image>
         </div>
         <h1 className="font-extrabold text-3xl tracking-wide ">
-          Don&rsquo;t be like that, Experience the{" "}
+          Don&rsquo;t just fall be seated and Experience the{" "}
           <span className="text-transparent   bg-clip-text bg-gradient-to-r from-purple-700 to-pink-600  font-bold ">
             Healing
           </span>{" "}

@@ -1,10 +1,18 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import { ClientInfromationProps } from "../../pages/dashboard/payment/[_id]";
+import Swal from "sweetalert2";
 
 interface ClientInformationProps {
   clientInformation: ClientInfromationProps;
 }
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+});
 
 const CheckOut = ({ clientInformation }: ClientInformationProps) => {
   const [paymentError, setPaymentError] = useState<string | undefined>(" ");
@@ -93,6 +101,7 @@ const CheckOut = ({ clientInformation }: ClientInformationProps) => {
           console.log(data);
           setSuccess("Your payment is succeeded");
           setTransitionId(paymentIntent.id);
+          Toast.fire({ icon: "success", title: `Payment done successfully` });
         });
     }
     setProcessing(false);
