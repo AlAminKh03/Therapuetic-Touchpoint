@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <main
-      className={`${inter.className}  bg-fixed min-h-screen bg-center  bg-cover z-[4]`}
+      className={`${inter.className} bg-white  bg-fixed min-h-screen bg-center  bg-cover z-[4]`}
     >
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
