@@ -28,12 +28,12 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className="hidden lg:block absolute bottom-[9rem] left-[5rem]  -z-10">
+        <div className="hidden lg:block absolute bottom-[9rem] left-[6rem]  -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
-            width={70}
-            height={70}
+            width={120}
+            height={120}
             className=" transform rotate-45"
           ></Image>
         </div>
