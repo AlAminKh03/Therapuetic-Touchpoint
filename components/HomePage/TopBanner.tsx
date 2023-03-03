@@ -29,7 +29,7 @@ const TopBanner = (props: Props) => {
             height={300}
           ></Image>
         </div>
-        <div className="hidden lg:block absolute bottom-[8.5rem] left-[6rem]  -z-10">
+        <div className="hidden lg:block absolute bottom-[11rem] left-[6rem]  -z-10">
           <Image
             src="/bandaid.png"
             alt="Hero Image"
@@ -49,7 +49,7 @@ const TopBanner = (props: Props) => {
           We&rsquo;re a health organization dedicated to improving your
           physical, mental, and emotional well-being.
         </h3>
-        <div className="flex py-4 ">
+        <div className="flex justify-start py-4 ">
           <Link
             href="/appointment"
             className="uppercase rounded-xl  px-6 py-2 items-center border bg-black text-white  mt-4 hover:translate-x-1 transition-all ease-in duration-500 flex justify-evenly gap-2"
