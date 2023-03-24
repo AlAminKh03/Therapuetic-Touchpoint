@@ -30,6 +30,7 @@ const AllUser = () => {
       return data;
     },
   });
+
   const handleRole = (id: string) => {
     fetch(
       `https://thearpuetic-touchpoint-server-ppfa.vercel.app/users/admin/${id}`,
@@ -41,7 +42,10 @@ const AllUser = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        console.log(users);
+      });
     refetch();
   };
   if (isLoading) {
